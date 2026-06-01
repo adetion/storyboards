@@ -1,0 +1,681 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+    padding: 20px;
+}
+
+/* 确保function-bar在移动端支持横向滚动 */
+.function-bar {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+}
+
+.function-left,
+.function-right {
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+}
+
+/* 确保按钮组不换行 */
+.function-right .btn-group {
+    flex-wrap: nowrap !important;
+}
+
+.container {
+    max-width: 5200px;
+    margin: 0 auto;
+    margin-top: 110px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #4ecdc4;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+h2,
+h3 {
+    color: #2a5298;
+    margin: 25px 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.section {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.json-input-section {
+    background: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+textarea {
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    margin-top: 15px;
+}
+
+.btn {
+    background: #4ecdc4;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #45b7aa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: #f8bbd0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #f48fb1;
+}
+
+.btn-success {
+    background: #4ecdc4;
+}
+
+.btn-success:hover {
+    background: #45b7aa;
+}
+
+.btn-info {
+    background: #4ecdc4;
+}
+
+.btn-info:hover {
+    background: #45b7aa;
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+.success-message {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #666;
+}
+
+.print-btn {
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+
+@media print {
+
+    /* 确保背景色和图像被打印 */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .no-print,
+    header {
+        display: none !important;
+    }
+
+    .section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    /* 表格样式 - 确保打印时配色正常 */
+    .shooting-table,
+    .staff-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        font-size: 9pt !important;
+    }
+
+    .shooting-table td,
+    .staff-table td {
+        border: 0.5pt solid windowtext !important;
+        padding: 2px 4px !important;
+        vertical-align: middle !important;
+    }
+
+    /* 表头和标题样式 */
+    .header-row,
+    .location-header,
+    .staff-header,
+    tr:nth-child(10),
+    tr:nth-child(11),
+    tr:nth-child(12) td {
+        background: #F2F2F2 !important;
+        font-weight: bold !important;
+        color: #000000 !important;
+    }
+
+    /* 确保标题行在打印时没有边框 */
+    .shooting-table tr:first-child td {
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+    }
+
+    /* 角色单元格样式 */
+    .role-yes {
+        background-color: #d4edda !important;
+        color: #155724 !important;
+    }
+
+    /* 垂直文本样式 */
+    .vertical-text {
+        writing-mode: vertical-rl !important;
+        text-orientation: mixed !important;
+        text-align: center !important;
+        height: 100px !important;
+    }
+
+    /* 确保表格中的背景色生效 */
+    [style*="background:#F2F2F2"] {
+        background: #F2F2F2 !important;
+    }
+
+    /* 确保页面布局合理 - 所有页面都有边距 */
+    @page {
+        size: A4 landscape;
+        margin: 1cm;
+        /* 确保所有页面都有统一的顶部边距 */
+        margin-top: 1.5cm;
+        margin-bottom: 1cm;
+    }
+
+    /* 确保表格跨页时的样式 - 允许表格分页 */
+    /* 移除 table 的 page-break-inside: avoid，允许表格正常分页 */
+
+    /* 仅禁止行内分页，确保行完整显示 */
+    .shooting-table tr {
+        page-break-inside: avoid;
+    }
+
+    /* 确保表格标题和表头在新页面开始时正确显示 */
+    .header-row,
+    .location-header {
+        page-break-after: avoid;
+    }
+
+    /* 确保容器有足够的内边距，防止内容紧贴边缘 */
+    #outputContainer {
+        margin-top: 0;
+        margin-bottom: 1cm;
+    }
+
+    /* 确保主体内容容器样式 */
+    .section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        /* 添加上下外边距，确保内容与页面边缘保持距离 */
+        margin-top: 0.5cm;
+        margin-bottom: 1cm;
+    }
+
+    /* 确保第二页及后续页面内容不紧贴顶部 */
+    body {
+        font-family: 'Microsoft YaHei', Arial, sans-serif !important;
+        line-height: 1.6 !important;
+        color: #333 !important;
+        background-color: white !important;
+        /* 添加全局内边距，确保所有页面内容都有适当边距 */
+        padding: 0.5cm;
+    }
+
+    /* 确保容器宽度适配页面 */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+    }
+}
+
+.calendar-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+
+.calendar-day-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background: #f0f8ff;
+    border-radius: 4px;
+    color: #2a5298;
+}
+
+.calendar-day {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.calendar-day:hover {
+    background: #f0f8ff;
+    transform: translateY(-2px);
+}
+
+.calendar-day.selected {
+    background: #2a5298;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.has-data {
+    background: #d4edda;
+    font-weight: bold;
+}
+
+.calendar-day.has-data:hover {
+    background: #c3e6cb;
+}
+
+.calendar-day.empty {
+    background: #f9f9f9;
+    cursor: default;
+}
+
+.calendar-day.empty:hover {
+    background: #f9f9f9;
+    transform: none;
+}
+
+.day-info {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.current-day-info {
+    background: #e8f4fd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    border-left: 4px solid #2a5298;
+}
+
+.current-day-info h4 {
+    margin-bottom: 10px;
+    color: #2a5298;
+}
+
+.current-day-info p {
+    margin: 5px 0;
+}
+
+/* 悬浮日历按钮样式 */
+.calendar-float-btn {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(102, 126, 234, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-float-btn:hover {
+    background: rgba(102, 126, 234, 0.9);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 悬浮日历容器样式 */
+.calendar-float-container {
+    position: fixed;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 999;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* 日历容器动画 */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50%) translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-50%) translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 日历标题样式 */
+.calendar-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* 日历网格样式 */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+/* 日历日期样式 */
+.calendar-day {
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #f8f9fa;
+}
+
+.calendar-day:hover {
+    background: #e9ecef;
+}
+
+.calendar-day.has-data {
+    background: #e3f2fd;
+    font-weight: bold;
+}
+
+.calendar-day.selected {
+    background: #667eea;
+    color: white;
+}
+
+/* 日历星期标题样式 */
+.calendar-day-header {
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* 日信息样式 */
+.day-info {
+    font-size: 10px;
+    margin-top: 2px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .calendar-grid {
+        gap: 2px;
+    }
+
+    .calendar-day {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    /* 移动端调整 */
+    .calendar-float-container {
+        width: calc(100% - 90px);
+        left: 60px;
+    }
+}
+
+/* 表格容器样式，允许水平滚动 */
+.table-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 表格样式 */
+.shooting-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin: 0;
+}
+
+.shooting-table td {
+    border: 0.5pt solid windowtext;
+    padding: 2px 4px;
+    vertical-align: middle;
+}
+
+/* 非移动端自适应 */
+@media (min-width: 769px) {
+    .table-container {
+        overflow: visible;
+        box-shadow: none;
+    }
+
+    .shooting-table {
+        width: 100%;
+        min-width: auto;
+        max-width: 100%;
+    }
+
+    .shooting-table td {
+        white-space: normal;
+        word-break: break-word;
+    }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: scroll;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .shooting-table {
+        width: auto;
+        min-width: 1123px;
+        /* A4横向宽度（像素） */
+        max-width: none;
+        font-size: 8pt;
+    }
+
+    .shooting-table td {
+        padding: 1px 2px;
+        white-space: nowrap;
+    }
+}
+
+.header-row {
+    background: #F2F2F2;
+    font-weight: bold;
+    text-align: center;
+}
+
+.location-header {
+    background: #F2F2F2;
+    font-weight: bold;
+    color: #000000;
+}
+
+.location-title {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.location-value {
+    vertical-align: middle;
+}
+
+.travel-time {
+    background: #F2F2F2;
+    text-align: left;
+}
+
+.role-cell {
+    text-align: center;
+    font-weight: bold;
+    min-width: 30px;
+}
+
+.role-yes {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.content-cell {
+    text-align: left;
+}
+
+.notes-cell {
+    text-align: left;
+}
+
+.props-cell {
+    text-align: left;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: center;
+    height: 100px;
+}
+
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin-top: 20px;
+}
+
+.staff-table td {
+    border: 0.5pt solid windowtext;
+    padding: 4px;
+    text-align: center;
+}
+
+.staff-header {
+    background: #F2F2F2;
+    font-weight: bold;
+}
+
+/* 旋转动画 */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,1164 @@
+/* 拍摄通告特定样式 */
+.announcement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding: 0 var(--spacing-lg);
+}
+
+.announcement-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--primary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.announcement-container {
+    background: var(--background-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-xl);
+    margin: 0 auto var(--spacing-lg);
+    max-width: 1400px;
+    width: 100%;
+    position: relative;
+    transition: var(--transition);
+}
+
+.announcement-container:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+.document-header {
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    background: var(--background-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+}
+
+.document-title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: var(--primary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.document-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.document-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xl);
+    background: var(--background-hover);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.meta-item {
+    flex: 1;
+    padding: 0 var(--spacing-sm);
+}
+
+.meta-label {
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+}
+
+.meta-value {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-left: 5px solid var(--primary-color);
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--primary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.scene-list {
+    list-style-type: none;
+}
+
+.scene-item {
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-md);
+    transition: var(--transition);
+    background: var(--background-card);
+}
+
+.scene-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-3px);
+    background: var(--background-hover);
+}
+
+.scene-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.scene-number {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.scene-location {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.scene-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.detail-item {
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.detail-label {
+    font-weight: 700;
+    display: inline-block;
+    width: 100px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.cast-list,
+.crew-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.cast-item,
+.crew-item {
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition);
+    background: var(--background-card);
+}
+
+.cast-item:hover,
+.crew-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-3px);
+    background: var(--background-hover);
+}
+
+.role {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.actor {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.notes-section {
+    background: var(--background-hover);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    margin-top: var(--spacing-lg);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.notes-title {
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-xxl);
+    background: var(--background-light);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+}
+
+.signature-block {
+    text-align: center;
+    flex: 1;
+    padding: 0 var(--spacing-lg);
+}
+
+.signature-line {
+    border-top: 2px solid var(--text-primary);
+    padding-top: var(--spacing-sm);
+    margin-top: var(--spacing-xxl);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.loading-message,
+.error-message {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    color: var(--text-secondary);
+    background: var(--background-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    margin: var(--spacing-xl) 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.shot-list {
+    margin-top: var(--spacing-sm);
+    padding-left: var(--spacing-lg);
+}
+
+.shot-item {
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+}
+
+.shot-id {
+    font-weight: 700;
+    margin-right: var(--spacing-sm);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.shot-type {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius-full);
+    font-size: 0.8rem;
+    margin-right: var(--spacing-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.shot-type:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.shot-duration {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.weather-icon {
+    margin-right: var(--spacing-xs);
+    font-size: 1.1rem;
+}
+
+.tab-container {
+    margin-bottom: var(--spacing-lg);
+    background: var(--background-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 2px solid var(--border-color);
+    background: var(--background-hover);
+}
+
+.tab-button {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+    background: var(--background-card);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.tab-button.active::before {
+    left: 0;
+}
+
+.tab-button:not(.active):hover {
+    color: var(--primary-color);
+    background: var(--background-light);
+}
+
+.tab-button:not(.active):hover::before {
+    left: 0;
+}
+
+.tab-content {
+    display: none;
+    padding: var(--spacing-xl);
+}
+
+.tab-content.active {
+    display: block;
+    animation: tabFadeIn 0.3s ease-out;
+}
+
+@keyframes tabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.equipment-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.equipment-category {
+    background: var(--background-hover);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.equipment-category:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-3px);
+}
+
+.equipment-category h4 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+}
+
+.equipment-item {
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+    transition: var(--transition);
+}
+
+.equipment-item:hover {
+    transform: translateX(5px);
+    color: var(--primary-color);
+}
+
+.costume-list,
+.props-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.costume-item,
+.prop-item {
+    background: var(--background-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-lg);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.costume-item::before,
+.prop-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.costume-item:hover,
+.prop-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-hover);
+    border-color: var(--primary-color);
+}
+
+.costume-item:hover::before,
+.prop-item:hover::before {
+    left: 0;
+}
+
+.character-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.costume-details,
+.makeup-details {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: var(--background-hover);
+    border-radius: var(--border-radius-md);
+    transition: var(--transition);
+}
+
+.costume-details:hover,
+.makeup-details:hover {
+    background: var(--background-light);
+    transform: translateX(5px);
+}
+
+.prop-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.prop-status {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--background-hover);
+    border-radius: var(--border-radius-md);
+    transition: var(--transition);
+}
+
+.prop-status:hover {
+    background: var(--background-light);
+    transform: translateX(5px);
+}
+
+.no-data {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xxl);
+    color: var(--text-secondary);
+    font-style: italic;
+    background: var(--background-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* 表格容器样式 */
+.table-container {
+    width: 100%;
+    margin: var(--spacing-lg) 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    background-color: var(--background-card);
+    transition: var(--transition);
+}
+
+.table-container:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* 确保表格在自适应屏宽的同时，高度也能等比缩放 */
+.shot-list-table,
+.schedule-table {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100% !important;
+    overflow: hidden;
+}
+
+/* 确保打印预览模态框中的表格能完整显示 */
+#print-preview-content .shot-list-table,
+#print-preview-content .schedule-table {
+    transform: scale(1);
+    transform-origin: center top;
+    max-height: 100% !important;
+    font-size: 0.7rem !important;
+}
+
+/* 减小打印预览模态框中表格的行高和内边距 */
+#print-preview-content .shot-list-table td,
+#print-preview-content .shot-list-table th,
+#print-preview-content .schedule-table td,
+#print-preview-content .schedule-table th {
+    padding: 2px 4px !important;
+    font-size: 0.65rem !important;
+    line-height: 1.2 !important;
+}
+
+/* 确保表格行和单元格不会影响表格的宽高比 */
+.shot-list-table tr,
+.shot-list-table td,
+.shot-list-table th,
+.schedule-table tr,
+.schedule-table td,
+.schedule-table th {
+    height: auto !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 确保表格内容区域不会影响表格的宽高比 */
+.shot-list-table tbody,
+.schedule-table tbody {
+    height: auto !important;
+}
+
+/* 分镜列表表格样式 */
+.shot-list-table {
+    width: 100% !important;
+    height: auto !important;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 100%;
+    table-layout: auto;
+    box-sizing: border-box;
+    background-color: var(--background-card);
+    aspect-ratio: 1.414 / 1 !important;
+    overflow: hidden;
+}
+
+.shot-list-table thead tr {
+    background: var(--primary-color);
+    color: var(--text-light);
+    text-align: left;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.shot-list-table th {
+    padding: var(--spacing-md) var(--spacing-sm);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+}
+
+.shot-list-table td {
+    padding: var(--spacing-sm) var(--spacing-sm);
+    border: 2px solid var(--border-color);
+    vertical-align: top;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.shot-list-table tbody tr {
+    border-bottom: 2px solid var(--border-color);
+    transition: var(--transition);
+    background: var(--background-card);
+}
+
+.shot-list-table tbody tr:hover {
+    background: var(--background-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.shot-list-table tbody tr:nth-of-type(even) {
+    background: var(--background-light);
+}
+
+.shot-list-table tbody tr:nth-of-type(even):hover {
+    background: var(--background-hover);
+}
+
+.shot-list-table tbody tr:last-of-type {
+    border-bottom: 3px solid var(--primary-color);
+}
+
+/* 拍摄时间表表格样式 */
+.schedule-table {
+    width: 100% !important;
+    height: auto !important;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 100%;
+    table-layout: auto;
+    box-sizing: border-box;
+    background-color: var(--background-card);
+    aspect-ratio: 1.414 / 1 !important;
+    overflow: hidden;
+}
+
+.schedule-table thead tr {
+    background: var(--secondary-color);
+    color: var(--text-light);
+    text-align: left;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table th {
+    padding: var(--spacing-md) var(--spacing-sm);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+}
+
+.schedule-table td {
+    padding: var(--spacing-sm) var(--spacing-sm);
+    border: 2px solid var(--border-color);
+    vertical-align: top;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.schedule-table tbody tr {
+    border-bottom: 2px solid var(--border-color);
+    transition: var(--transition);
+    background: var(--background-card);
+}
+
+.schedule-table tbody tr:hover {
+    background: var(--background-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table tbody tr:nth-of-type(even) {
+    background: var(--background-light);
+}
+
+.schedule-table tbody tr:nth-of-type(even):hover {
+    background: var(--background-hover);
+}
+
+.schedule-table tbody tr:last-of-type {
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+/* 响应式表格设计 */
+@media screen and (max-width: 1200px) {
+    .shot-list-table,
+    .schedule-table {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .table-container {
+        max-height: 500px;
+    }
+    
+    .shot-list-table th,
+    .schedule-table th,
+    .shot-list-table td,
+    .schedule-table td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table-container {
+        max-height: 400px;
+        margin: var(--spacing-sm) 0;
+    }
+    
+    .shot-list-table,
+    .schedule-table {
+        font-size: 0.8rem;
+    }
+    
+    .shot-list-table th,
+    .schedule-table th,
+    .shot-list-table td,
+    .schedule-table td {
+        padding: var(--spacing-xs) 6px;
+    }
+}
+
+/* 主内容区样式 */
+.main-content {
+    min-height: calc(100vh - 110px);
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: var(--background-primary);
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: var(--background-light);
+    border-radius: var(--border-radius-full);
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: var(--border-radius-full);
+    transition: var(--transition);
+    border: 2px solid var(--background-light);
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* 响应式内容容器 */
+#announcement-content {
+    background: var(--background-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-xl);
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    transition: var(--transition);
+}
+
+#announcement-content:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-3px);
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background-color: var(--background-card);
+    margin: 5% auto;
+    padding: var(--spacing-lg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: var(--box-shadow-elevated);
+    animation: modalSlideIn 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary-color);
+}
+
+/* 确保打印预览模态框符合A4横向宽高比 */
+#print-preview-modal .modal-content {
+    max-width: 1200px;
+    max-height: 850px;
+    width: 90% !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--primary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.close {
+    color: var(--text-secondary);
+    float: right;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-full);
+    background: transparent;
+    border: 2px solid transparent;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--text-light);
+    background: var(--primary-color);
+    transform: scale(1.2) rotate(360deg);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+    text-decoration: none;
+}
+
+#print-preview-content {
+    aspect-ratio: 1.414 / 1 !important;
+    overflow-y: visible;
+    padding: var(--spacing-lg);
+    background-color: var(--background-card);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: var(--spacing-md) 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 2px solid var(--border-color);
+}
+
+.modal-footer {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--border-color);
+}
+
+/* 设置打印页面为横向A4 */
+@page {
+    size: A4 landscape;
+    margin: 1cm;
+}
+
+/* 打印样式 */
+@media print {
+    /* 隐藏所有非打印内容 */
+    body > *:not(.modal-content),
+    .modal-content > *:not(#print-preview-content) {
+        display: none !important;
+    }
+    
+    /* 确保打印内容占满页面 */
+    #print-preview-content {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: static !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    
+    /* 确保表格容器能正确打印 */
+    .table-container {
+        overflow: visible !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* 确保表格能完整打印到一页上 */
+    #print-preview-content table,
+    .shot-list-table,
+    .schedule-table {
+        display: table !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        font-size: 0.7rem !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    
+    /* 确保表格行和单元格能正确打印并适应一页 */
+    #print-preview-content tr,
+    #print-preview-content td,
+    #print-preview-content th,
+    .shot-list-table th,
+    .schedule-table th,
+    .shot-list-table td,
+    .schedule-table td {
+        display: table-cell !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        border-collapse: collapse !important;
+        border: 1px solid #000 !important;
+        padding: 2px 4px !important;
+        font-size: 0.65rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    /* 强制表格内容适应页面宽度 */
+    .shot-list-table,
+    .schedule-table,
+    .shot-list-table tbody,
+    .schedule-table tbody,
+    .shot-list-table tr,
+    .schedule-table tr,
+    .shot-list-table th,
+    .schedule-table th,
+    .shot-list-table td,
+    .schedule-table td {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    
+    /* 确保表格能打印到一页上 */
+    .shot-list-table,
+    .schedule-table {
+        page-break-after: auto !important;
+        break-after: auto !important;
+    }
+    
+    /* 调整表头和表尾样式 */
+    #print-preview-content thead tr,
+    .shot-list-table thead tr,
+    .schedule-table thead tr {
+        background-color: #f0f0f0 !important;
+        color: #000 !important;
+    }
+    
+    /* 移除鼠标悬停效果 */
+    #print-preview-content tbody tr:hover,
+    .shot-list-table tbody tr:hover,
+    .schedule-table tbody tr:hover {
+        background-color: transparent !important;
+    }
+    
+    /* 隐藏模态框样式 */
+    .modal {
+        position: static !important;
+        display: block !important;
+        background-color: transparent !important;
+    }
+    
+    .modal-content {
+        position: static !important;
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        animation: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .document-meta {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .meta-item {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .scene-details {
+        grid-template-columns: 1fr;
+    }
+
+    .cast-list,
+    .crew-list {
+        grid-template-columns: 1fr;
+    }
+
+    .signature-section {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+
+    .costume-list,
+    .props-list {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-buttons {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .tab-buttons::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-button {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}

@@ -1,0 +1,157 @@
+{
+  "project": {
+    "name": "青春足球梦",
+    "startDate": "2025-06-01",
+    "endDate": "2025-06-30",
+    "totalScenes": 0,
+    "totalShots": 0,
+    "estimatedDays": 15,
+    "actualDays": 0,
+    "daysCompleted": 0,
+    "completionRate": 0,
+    "director": "王文杰",
+    "producer": "李华",
+    "cinematographer": "王强",
+    "scriptSupervisor": "陈丽",
+    "productionDesigner": "高晓慧",
+    "costumeDesigner": "赵静怡",
+    "castingDirector": "李朋",
+    "keyGrip": "张忠谋",
+    "bestBoy": "司马文旭"
+  },
+  "crew": {
+    "keyCrew": [
+      {
+        "role": "导演",
+        "name": "张明",
+        "phone": "138****0001",
+        "email": "zhangming@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "副导演",
+        "name": "小助理",
+        "phone": "138****0002",
+        "email": "xiaozhuzhu@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "制片主任",
+        "name": "李华",
+        "phone": "138****0003",
+        "email": "lihua@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "摄影师",
+        "name": "王强",
+        "phone": "138****0004",
+        "email": "wangqiang@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "录音师",
+        "name": "赵工",
+        "phone": "138****0005",
+        "email": "zhaowg@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "照明师",
+        "name": "李师傅",
+        "phone": "138****0006",
+        "email": "lifu@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "服装师",
+        "name": "赵静怡",
+        "phone": "138****0007",
+        "email": "zhaojy@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "化妆师",
+        "name": "小美",
+        "phone": "138****0008",
+        "email": "xiaomei@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "道具师",
+        "name": "小道具",
+        "phone": "138****0009",
+        "email": "xiaodugui@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "美术师",
+        "name": "高晓慧",
+        "phone": "138****0010",
+        "email": "gaohx@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "现场制片",
+        "name": "张现场",
+        "phone": "138****0011",
+        "email": "zhangxc@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "外联制片",
+        "name": "李外联",
+        "phone": "138****0012",
+        "email": "liwai@film.com",
+        "callTime": "06:30"
+      },
+      {
+        "role": "生活制片",
+        "name": "赵生活",
+        "phone": "138****0013",
+        "email": "zhaohs@film.com",
+        "callTime": "06:30"
+      }
+    ],
+    "departments": [
+      {
+        "name": "导演组",
+        "members": [
+          "张明 (导演)",
+          "小助理 (副导演)"
+        ]
+      },
+      {
+        "name": "摄影组",
+        "members": [
+          "王强 (摄影师)",
+          "李师傅 (照明师)",
+          "赵工 (录音师)"
+        ]
+      },
+      {
+        "name": "美术组",
+        "members": [
+          "高晓慧 (美术师)",
+          "赵静怡 (服装师)",
+          "小美 (化妆师)"
+        ]
+      },
+      {
+        "name": "道具组",
+        "members": [
+          "小道具 (道具师)"
+        ]
+      },
+      {
+        "name": "制片组",
+        "members": [
+          "李华 (制片主任)",
+          "张现场 (现场制片)",
+          "李外联 (外联制片)",
+          "赵生活 (生活制片)"
+        ]
+      }
+    ]
+  }
+}

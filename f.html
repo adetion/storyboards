@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宫格图片分割工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        input[type="file"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            background: #f9f9f9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        input[type="file"]:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            background: white;
+            cursor: pointer;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .instructions {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .instructions h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .instructions li {
+            padding: 8px 0;
+            color: #666;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .instructions li:before {
+            content: "✓";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .tiles-grid {
+            display: grid;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tile {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .tile:hover {
+            transform: scale(1.05);
+        }
+        
+        .tile img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .error {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #d32f2f;
+            margin-bottom: 20px;
+        }
+        
+        .success {
+            color: #388e3c;
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #388e3c;
+            margin-bottom: 20px;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1976d2;
+        }
+        
+        .grid-options {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .grid-option {
+            text-align: center;
+            padding: 12px 5px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .grid-option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .grid-option.selected {
+            border-color: #667eea;
+            background: #e6e9ff;
+            font-weight: bold;
+        }
+        
+        .debug-info {
+    background: #f5f5f5;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #666;
+    white-space: pre-wrap;
+    word-break: break-all;
+    display: none; /* 默认隐藏，需要时开启 */
+}
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .grid-options {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .grid-option {
+                padding: 10px 5px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>宫格图片分割工具</h1>
+        
+        <div class="instructions">
+            <h3>使用说明：</h3>
+            <ul>
+                <li>选择需要分割的图片（支持JPG、PNG、GIF格式）</li>
+                <li>选择宫格类型（4/6/9/16/25宫格）</li>
+                <li>点击"分割图片"按钮进行处理</li>
+                <li>下载分割后的小图</li>
+            </ul>
+        </div>
+        
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="image">选择图片：</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            
+            <div class="form-group">
+                <label>选择宫格类型：</label>
+                <div class="grid-options">
+                    <div class="grid-option selected" data-value="4">
+                        四宫格<br><small>2×2</small>
+                    </div>
+                    <div class="grid-option" data-value="6">
+                        六宫格<br><small>2×3</small>
+                    </div>
+                    <div class="grid-option" data-value="9">
+                        九宫格<br><small>3×3</small>
+                    </div>
+                    <div class="grid-option" data-value="16">
+                        十六宫格<br><small>4×4</small>
+                    </div>
+                    <div class="grid-option" data-value="25">
+                        二十五宫格<br><small>5×5</small>
+                    </div>
+                </div>
+                <input type="hidden" id="grid_type" name="grid_type" value="4" required>
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>正在处理图片，请稍候...</p>
+            </div>
+            
+            <button type="submit">开始分割图片</button>
+        </form>
+        
+        <div class="result" id="result">
+            <!-- 结果将在这里显示 -->
+        </div>
+    </div>
+    
+    <script>
+        // 宫格选项点击事件
+        document.querySelectorAll('.grid-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.grid-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                document.getElementById('grid_type').value = this.dataset.value;
+            });
+        });
+        
+// 修改表单提交事件
+document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const loading = document.getElementById('loading');
+    const resultDiv = document.getElementById('result');
+    const fileInput = document.getElementById('image');
+    
+    // 验证文件
+    const file = fileInput.files[0];
+    if (!file) {
+        showError('请选择要分割的图片');
+        return;
+    }
+    
+    loading.style.display = 'block';
+    resultDiv.style.display = 'none';
+    resultDiv.innerHTML = '';
+    
+    try {
+        // 使用简单的API先测试
+        const response = await fetch('fenge.php', {
+            method: 'POST',
+            body: formData,
+            // 不要设置Content-Type，让浏览器自动设置
+        });
+        
+        console.log('响应状态:', response.status, response.statusText);
+        
+        // 获取响应文本
+        const text = await response.text();
+        console.log('响应内容:', text);
+        
+        // 尝试解析JSON
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (parseError) {
+            console.error('JSON解析失败:', parseError);
+            console.error('原始响应:', text);
+            
+            // 显示原始响应用于调试
+            resultDiv.innerHTML = `
+                <div class="error">
+                    <h3>服务器响应格式错误</h3>
+                    <pre>${escapeHtml(text)}</pre>
+                </div>
+            `;
+            resultDiv.style.display = 'block';
+            return;
+        }
+        
+        if (!data.success) {
+            showError(data.message || '处理失败');
+            if (data.trace) {
+                console.error('服务器跟踪:', data.trace);
+            }
+        } else {
+            showResult(data.data);
+        }
+        
+    } catch (error) {
+        console.error('请求失败:', error);
+        showError('请求失败: ' + error.message);
+    } finally {
+        loading.style.display = 'none';
+    }
+});
+
+// 转义HTML
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+        
+        // 显示错误信息
+        function showError(message) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="error">
+                    <h3>处理失败</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+            resultDiv.style.display = 'block';
+        }
+        
+        // 显示成功结果
+        function showResult(data) {
+            const resultDiv = document.getElementById('result');
+            
+            let html = `
+                <div class="success">
+                    <h3>✓ 图片分割成功！</h3>
+                    <p>共分割出 ${data.total_tiles} 张小图</p>
+                </div>
+                
+                <div class="info-box">
+                    <h4>分割信息：</h4>
+                    <p><strong>宫格类型：</strong>${data.grid_type || getGridType(data.layout)}宫格 (${data.layout.rows}×${data.layout.cols})</p>
+                    <p><strong>原图尺寸：</strong>${data.original_size.width} × ${data.original_size.height} 像素</p>
+                    <p><strong>小图尺寸：</strong>${data.tile_size.width} × ${data.tile_size.height} 像素</p>
+                </div>
+                
+                <div class="info-box">
+                    <h4>下载链接：</h4>
+                    <p>点击下方小图可以直接下载，或者：</p>
+                    <div style="margin-top: 10px;">
+                        <button type="button" onclick="downloadAllTiles(${JSON.stringify(data.tiles).replace(/"/g, '&quot;')})" style="background: #4caf50; width: auto; padding: 10px 20px;">
+                            下载所有小图 (${data.total_tiles}张)
+                        </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>分割结果预览：</h4>
+                    <div class="tiles-grid" style="grid-template-columns: repeat(${data.layout.cols || 3}, 1fr);">
+            `;
+            
+            data.tiles.forEach(tile => {
+                html += `
+                    <div class="tile">
+                        <a href="${tile.url}" download="${tile.filename}" title="点击下载">
+                            <img src="${tile.url}" alt="第${tile.position}张 (第${tile.row}行第${tile.col}列)">
+                        </a>
+                        <div style="text-align: center; padding: 5px; font-size: 12px; background: #f5f5f5;">
+                            第${tile.position}张
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += `
+                    </div>
+                </div>
+            `;
+            
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+            
+            // 滚动到结果区域
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // 获取宫格类型
+        function getGridType(layout) {
+            const total = layout.rows * layout.cols;
+            return total;
+        }
+        
+       // 在 index.html 中找到 showResult 函数，修改如下：
+function showResult(data) {
+    const resultDiv = document.getElementById('result');
+    
+    let html = `
+        <div class="success">
+            <h3>✓ 图片分割成功！</h3>
+            <p>共分割出 ${data.total_tiles} 张小图</p>
+        </div>
+        
+        <div class="info-box">
+            <h4>分割信息：</h4>
+            <p><strong>宫格类型：</strong>${data.grid_type}宫格 (${data.layout.rows}×${data.layout.cols})</p>
+            <p><strong>原图尺寸：</strong>${data.original_size.width} × ${data.original_size.height} 像素</p>
+            <p><strong>小图尺寸：</strong>${data.tile_size.width} × ${data.tile_size.height} 像素</p>
+        </div>
+        
+        <div class="info-box">
+            <h4>下载链接：</h4>
+            <p>点击下方小图可以直接下载，或者：</p>
+            <div style="margin-top: 10px;">
+                <button type="button" onclick="downloadAllTiles(${JSON.stringify(data.tiles).replace(/"/g, '&quot;')})" 
+                        style="background: #4caf50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                    下载所有小图 (${data.total_tiles}张)
+                </button>
+            </div>
+        </div>
+        
+        <div>
+            <h4>分割结果预览：</h4>
+            <div class="tiles-grid" style="grid-template-columns: repeat(${data.layout.cols}, 1fr);">
+    `;
+    
+    // 遍历所有tiles - 修复这里！
+    data.tiles.forEach(tile => {
+        // 注意：使用 tile.index 而不是 tile.position
+        html += `
+            <div class="tile">
+                <a href="${tile.url}" download="${tile.filename}" title="点击下载 - 第${tile.row}行第${tile.col}列">
+                    <img src="${tile.url}" alt="第${tile.index}张 (第${tile.row}行第${tile.col}列)" 
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI3MjAiIHZpZXdCb3g9IjAgMCAxMjgwIDcyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI3MjAiIGZpbGw9IiNGNUY1RjUiLz48dGV4dCB4PSI2NDAiIHk9IjM2MCIgZm9udC1zaXplPSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzY2NiI+RGl2aWRlZCBUaWxlICR7dGlsZS5pbmRleH08L3RleHQ+PC9zdmc+'">
+                </a>
+                <div style="text-align: center; padding: 5px; font-size: 12px; background: #f5f5f5;">
+                    第${tile.index}张
+                </div>
+            </div>
+        `;
+    });
+    
+    html += `
+            </div>
+        </div>
+    `;
+    
+    resultDiv.innerHTML = html;
+    resultDiv.style.display = 'block';
+    
+    // 滚动到结果区域
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+// 同时更新 downloadAllTiles 函数
+function downloadAllTiles(tiles) {
+    if (!tiles || tiles.length === 0) {
+        alert('没有可下载的图片');
+        return;
+    }
+    
+    // 创建下载链接
+    let downloaded = 0;
+    const total = tiles.length;
+    
+    tiles.forEach((tile, index) => {
+        setTimeout(() => {
+            const link = document.createElement('a');
+            link.href = tile.url;
+            link.download = tile.filename || `tile_${tile.index}.jpg`;
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            downloaded++;
+            if (downloaded === total) {
+                alert(`所有 ${total} 张图片已开始下载，请查看浏览器下载列表`);
+            }
+        }, index * 300); // 间隔300ms，避免同时下载太多文件
+    });
+}
+    </script>
+</body>
+</html>

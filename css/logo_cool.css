@@ -1,0 +1,396 @@
+/* From Uiverse.io by escannord */
+/* 流光灿金鎏金炫光配色特效 - 无遮挡动画版 */
+.tooltip-container {
+    --support-size: 50px;
+    --tooltip-radius: var(--border-radius);
+
+    position: relative;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 17px;
+    font-weight: bold;
+    padding: 0.7em 1.8em;
+    color: #4ecdc4;
+    border: 2px solid #4ecdc4;
+    background: #f8bbd0;
+    border-radius: var(--border-radius);
+    overflow: visible;
+    /* 确保内容不被裁剪 */
+    text-shadow: 0 0 8px rgba(78, 205, 196, 0.3);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+}
+
+.tooltip-container::before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    /* 确保在背景层 */
+    transition: var(--transition);
+    outline: 3px solid transparent;
+    background: #4ecdc4;
+    opacity: 0.7;
+    /* 降低不透明度避免遮挡 */
+}
+
+.tooltip-container::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent;
+    transform: rotate(45deg);
+    animation: light-sweep 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+    /* 确保在最底层 */
+    opacity: 0.6;
+    /* 降低不透明度避免遮挡 */
+}
+
+.tooltip-container:hover {
+    color: white;
+    background: #4ecdc4;
+    box-shadow:
+        0 0 20px rgba(78, 205, 196, 0.8),
+        0 0 40px rgba(78, 205, 196, 0.4),
+        inset 0 0 15px rgba(255, 255, 255, 0.3);
+    border: 2px solid #4ecdc4;
+    transform: translateY(-2px);
+}
+
+.tooltip-container:hover::before {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    /* 保持圆角一致 */
+    outline-offset: 5px;
+    /* 减少偏移量 */
+    outline-color: var(--primary-color);
+    outline-width: 2px;
+    filter: blur(1px);
+    /* 减少模糊避免遮挡 */
+    opacity: 0.5;
+    /* 降低不透明度 */
+    animation: gold-pulse 1.5s ease-in-out infinite;
+}
+
+.tooltip {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 50%;
+    transform: translateX(-5%);
+    padding: 0.8em 1.2em;
+    /* 增加内边距 */
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    background: #4ecdc4;
+    border-radius: var(--tooltip-radius);
+    color: white;
+    box-shadow:
+        0 0 20px rgba(78, 205, 196, 0.8),
+        3px 3px 0px rgba(78, 205, 196, 0.5),
+        inset 0 0 10px rgba(255, 255, 255, 0.3);
+    border: 1px solid #4ecdc4;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    /* 确保tooltip在最上层 */
+    min-width: 180px;
+    /* 确保足够宽度显示内容 */
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tooltip::after {
+    content: "✨ 欢迎光临!   👋 ✨";
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--gold-primary);
+    background-size: 200% 200%;
+    text-align: center;
+    border-radius: var(--tooltip-radius);
+    animation: text-shimmer 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em 1.2em;
+    /* 与tooltip一致 */
+    box-sizing: border-box;
+}
+
+.tooltip::before {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    border-style: solid;
+    border-width: 10px;
+    left: 20px;
+    /* 调整位置避免超出边界 */
+    transform: translateX(-50%);
+    border-color: transparent #4ecdc4 #4ecdc4 transparent;
+    filter: drop-shadow(0px 2px 3px rgba(78, 205, 196, 0.5));
+    z-index: 101;
+}
+
+.tooltip-container:hover .tooltip::after {
+    animation: hidden 0.5s 1.5s linear forwards, text-shimmer 1s ease-in-out infinite;
+}
+
+.tooltip-container:hover .tooltip {
+    top: calc(-100% - var(--support-size) * 0.8);
+    /* 调整位置确保完全可见 */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation:
+        shake 0.5s 1s linear,
+        tooltip-glow 1.5s ease-in-out infinite;
+    transition: all 0.4s 0.5s;
+}
+
+/* 金色流光动画 */
+@keyframes gold-shimmer {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        opacity: 0.7;
+    }
+
+    50% {
+        background-position: 100% 50%;
+        opacity: 0.9;
+    }
+}
+
+@keyframes light-sweep {
+    0% {
+        transform: rotate(45deg) translateX(-100%);
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: rotate(45deg) translateX(100%);
+        opacity: 0.4;
+    }
+}
+
+@keyframes background-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes gold-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        opacity: 0.5;
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+        opacity: 0.7;
+    }
+}
+
+@keyframes tooltip-glow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 15px rgba(255, 215, 0, 0.6),
+            3px 3px 0px rgba(218, 165, 32, 0.5);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px rgba(255, 215, 0, 0.9),
+            3px 3px 0px rgba(218, 165, 32, 0.5);
+    }
+}
+
+@keyframes text-shimmer {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    }
+
+    50% {
+        background-position: 100% 50%;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+    }
+}
+
+@keyframes hidden {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(0.5);
+        background: #FFD700;
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(50%, -50%) scale(0.5);
+        /* 向右移动避免遮挡 */
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    40%,
+    80% {
+        transform: translateX(-10%);
+    }
+
+    20%,
+    60%,
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* 支持图标的金色样式 */
+.st2 {
+    fill: #FFD700;
+}
+
+.st3 {
+    fill: #FFEC8B;
+}
+
+.st6 {
+    fill: #DAA520;
+}
+
+.st7 {
+    fill: #FFF8DC;
+}
+
+.st8 {
+    fill: #FFA500;
+}
+
+.st10 {
+    fill: #8B7355;
+}
+
+.st11 {
+    fill: #FFD700;
+}
+
+.st12 {
+    opacity: 0.3;
+}
+
+.st14 {
+    fill: #F0E68C;
+}
+
+.st15 {
+    fill: #FFFACD;
+}
+
+#Calque_1 {
+    display: inline-block;
+    height: var(--support-size);
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 10;
+    /* 在合适层级 */
+    left: 0;
+    top: 0;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+}
+
+#left_x5F_arm_2_ {
+    transform: translateX(2px);
+    animation: arm-glow 2s ease-in-out infinite;
+}
+
+.tooltip-container:hover #Calque_1 {
+    top: calc(var(--support-size) * -1.2);
+    /* 调整位置确保不遮挡tooltip */
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.7));
+}
+
+@keyframes arm-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9));
+    }
+}
+
+/* 新增：确保动画层级的类 */
+.animation-layer {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.content-layer {
+    position: relative;
+    z-index: 1;
+}
+
+/* 媒体查询确保小屏幕上也能正常显示 */
+@media (max-width: 768px) {
+    .tooltip {
+        min-width: 160px;
+        font-size: 14px;
+        padding: 0.6em 1em;
+    }
+
+    .tooltip::after {
+        padding: 0.6em 1em;
+        font-size: 14px;
+    }
+
+    .tooltip-container:hover .tooltip {
+        top: calc(-100% - var(--support-size) * 1);
+        /* 增加间距 */
+    }
+}

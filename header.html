@@ -1,0 +1,339 @@
+<!-- 遮罩层 -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- 主头部 -->
+<header class="main-header">
+    <div class="header-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="菜单开关" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <button class="btn-icon" aria-label="首页" onclick="window.location.href='index.html'">
+            <i class="fas fa-home"></i>
+        </button>
+        <h1 class="project-name">智影工场</h1>
+    </div>
+    
+    <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <ul id="navLinks">
+            <li class="protected-link"><a href="novel.php"><i class="fas fa-book"></i> <span>小说转剧本</span></a></li>
+            <li class="protected-link"><a href="scripts.php"><i class="fas fa-scroll"></i> <span>剧本转分镜</span></a></li>
+            <li class="protected-link"><a href="characters.php"><i class="fas fa-users"></i> <span>角色创作</span></a></li>
+            <li class="protected-link"><a href="spaces.php"><i class="fas fa-map-marker-alt"></i> <span>时空场景</span></a></li>
+            <li class="protected-link"><a href="storyboards.php"><i class="fas fa-film"></i> <span>分镜管理</span></a></li>
+            <li class="protected-link"><a href="gushiban.php"><i class="fas fa-images"></i> <span>故事板</span></a></li>
+            <li class="protected-link"><a href="schedule.php"><i class="fas fa-calendar-alt"></i> <span>拍摄计划</span></a></li>
+            <li class="protected-link"><a href="announcement.php"><i class="fas fa-sticky-note"></i> <span>拍摄通告</span></a></li>
+            <!--<li class="protected-link"><a href="text2img.php"><i class="fas fa-paint-brush"></i> <span>文生图</span></a></li>-->
+            <!--<li class="protected-link"><a href="img2video.php"><i class="fas fa-paint-brush"></i> <span>图生视频</span></a></li>-->
+        </ul>
+    </nav>
+    
+    <div class="header-right">
+        <button class="btn-icon" aria-label="通知">
+            <i class="fas fa-bell"></i>
+        </button>
+        
+        <!-- 登录/注册按钮 -->
+        <div id="authButtons" style="display: flex; align-items: center; gap: 10px;">
+            <a href="login.html" class="btn btn-primary btn-small">登录</a>
+            <a href="register.html" class="btn btn-secondary btn-small">注册</a>
+        </div>
+        
+        <!-- 用户信息 -->
+        <div id="userInfo" style="display: none; align-items: center; gap: 10px; position: relative;">
+            <div class="user-profile" aria-label="用户菜单" style="cursor: pointer;">
+                <img src="assets/default-avatar.png" alt="用户头像" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjM2IiBoZWlnaHQ9IjM2IiBmaWxsPSIjRkZGRkZGIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iMTQiIHI9IjYiIGZpbGw9IiM0MzZFRjAiLz4KPHBhdGggZD0iTTAgMzZDMTAgMjYgMjYgMjYgMzYgMzZIMCIgZmlsbD0iIzQzNkVGMCIvPgo8L3N2Zz4K'">
+            </div>
+            <span id="userName" style="font-weight: 600;">用户</span>
+            <div id="dropdownMenu" style="display: none; position: absolute; top: 100%; right: 0; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 6px; padding: 10px 0; min-width: 150px; z-index: 1000;">
+                <a href="usercenter.php" style="display: block; padding: 10px 20px; text-decoration: none; color: #333; transition: all 0.3s;">个人中心</a>
+                <a href="#" id="logoutLink" style="display: block; padding: 10px 20px; text-decoration: none; color: #333; transition: all 0.3s;">退出登录</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+// ===== 终极菜单脚本 - 放在header.html中 =====
+(function() {
+    'use strict';
+    
+    //console.log('菜单脚本加载...');
+    
+    // 设置全局变量，标记菜单已初始化
+    window.menuInitialized = true;
+    
+    // 等待DOM加载
+    function initMenu() {
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const navOverlay = document.getElementById('navOverlay');
+        
+        if (!menuToggle || !mainNav) {
+            console.error('菜单元素未找到');
+            setTimeout(initMenu, 100);
+            return;
+        }
+        
+        //console.log('菜单元素找到，开始初始化');
+        
+        // 1. 设置当前页面激活状态
+        function setActiveMenu() {
+            try {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navItems = mainNav.querySelectorAll('li');
+                
+                navItems.forEach(item => item.classList.remove('active'));
+                
+                const pageMap = {
+                    'novel.php': 0,
+                    'scripts.php': 1,
+                    'characters.php': 2,
+                    'spaces.php': 3,
+                    'storyboards.php': 4,
+                    'gushiban.php': 5,
+                    'schedule.php': 6,
+                    'announcement.php': 7,
+                    'text2img.php': 8,
+                    'img2video.php': 9
+                };
+                
+                const activeIndex = pageMap[currentPage];
+                if (activeIndex !== undefined && navItems[activeIndex]) {
+                    navItems[activeIndex].classList.add('active');
+                } else if (currentPage === 'index.html' || currentPage === '') {
+                    if (navItems[0]) navItems[0].classList.add('active');
+                }
+            } catch (error) {
+                console.warn('设置激活菜单出错:', error);
+            }
+        }
+        
+        // 2. 菜单状态
+        let isMenuOpen = false;
+        
+        function openMenu() {
+            //console.log('打开菜单');
+            
+            if (window.innerWidth > 768) return;
+            
+            // 只添加show类，让CSS控制样式
+            mainNav.classList.add('show');
+            
+            // 更新按钮
+            menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            menuToggle.setAttribute('aria-expanded', 'true');
+            
+            // 遮罩层
+            if (navOverlay) {
+                navOverlay.classList.add('show');
+            }
+            
+            // 确保链接可点击
+            const links = mainNav.querySelectorAll('a');
+            links.forEach(link => {
+                Object.assign(link.style, {
+                    pointerEvents: 'auto',
+                    cursor: 'pointer',
+                    userSelect: 'auto',
+                    WebkitUserSelect: 'auto'
+                });
+            });
+            
+            // 防止背景滚动
+            document.body.style.overflow = 'hidden';
+            
+            isMenuOpen = true;
+            //console.log('菜单已打开');
+        }
+        
+        function closeMenu() {
+            //console.log('关闭菜单');
+            
+            // 只移除show类，让CSS控制样式
+            mainNav.classList.remove('show');
+            
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            menuToggle.setAttribute('aria-expanded', 'false');
+            
+            if (navOverlay) {
+                navOverlay.classList.remove('show');
+            }
+            
+            document.body.style.overflow = '';
+            
+            isMenuOpen = false;
+        }
+        
+        function toggleMenu(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            if (isMenuOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+        
+        // 3. 事件绑定
+        menuToggle.addEventListener('click', toggleMenu);
+        
+        // 遮罩层
+        if (navOverlay) {
+            navOverlay.addEventListener('click', closeMenu);
+        }
+        
+        // 链接点击
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    setTimeout(closeMenu, 100);
+                }
+            });
+        });
+        
+        // 点击外部关闭
+        document.addEventListener('click', function(e) {
+            if (isMenuOpen && window.innerWidth <= 768) {
+                // 检查点击的元素是否是用户中心的左侧导航菜单选项或按钮
+                const isUserNavItem = e.target.closest('.user-nav') || e.target.closest('.nav-item');
+                const isUserCenterButton = e.target.closest('.btn-recharge') || e.target.closest('.btn-vip') || e.target.closest('.btn-save') || e.target.closest('.btn-cancel');
+                if (!mainNav.contains(e.target) && 
+                    !menuToggle.contains(e.target) &&
+                    !(navOverlay && navOverlay.contains(e.target)) &&
+                    !isUserNavItem &&
+                    !isUserCenterButton) {
+                    closeMenu();
+                }
+            }
+        });
+        
+        // ESC键
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        });
+        
+        // 窗口大小变化
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && isMenuOpen) {
+                closeMenu();
+            }
+        });
+        
+        // 4. 初始化
+        setActiveMenu();
+        
+        // 初始状态
+        function updateMenuState() {
+            // 获取ul元素
+            const navUl = mainNav.querySelector('ul');
+            if (!navUl) return;
+            
+            if (window.innerWidth <= 768) {
+                // 移动端
+                mainNav.style.display = '';
+                navUl.style.display = ''; // 移除直接的样式设置，让CSS控制
+                menuToggle.style.display = 'flex';
+            } else {
+                // 桌面端
+                mainNav.style.display = 'flex';
+                navUl.style.display = 'flex';
+                navUl.style.flexDirection = 'row';
+                menuToggle.style.display = 'none';
+                
+                // 移除移动端样式
+                mainNav.classList.remove('show');
+                mainNav.style.position = '';
+                mainNav.style.top = '';
+                mainNav.style.left = '';
+                mainNav.style.width = '';
+                mainNav.style.background = '';
+                mainNav.style.boxShadow = '';
+                mainNav.style.padding = '';
+            }
+        }
+        
+        updateMenuState();
+        
+        // 窗口大小变化时更新菜单状态
+        window.addEventListener('resize', updateMenuState);
+        
+        //console.log('菜单初始化完成');
+    }
+    
+    // 多重初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMenu);
+    } else {
+        initMenu();
+    }
+    
+    setTimeout(initMenu, 300);
+})();
+</script>
+
+<!-- 用户认证脚本 -->
+<script src="js/auth.js"></script>
+<script>
+    // 自定义更新用户信息函数
+    function updateUserInfo(user, isLoggedIn) {
+        if (user && isLoggedIn) {
+            // 显示用户信息
+            document.getElementById('userName').textContent = user.username;
+            document.getElementById('userInfo').style.display = 'flex';
+            // 隐藏登录和注册按钮
+            document.getElementById('authButtons').style.display = 'none';
+            // 显示受保护的导航链接
+            const protectedLinks = document.querySelectorAll('.protected-link');
+            protectedLinks.forEach(link => {
+                link.style.display = 'inline-block';
+            });
+        } else {
+            // 显示登录和注册按钮
+            document.getElementById('authButtons').style.display = 'flex';
+            // 隐藏用户信息
+            document.getElementById('userInfo').style.display = 'none';
+            // 隐藏受保护的导航链接
+            const protectedLinks = document.querySelectorAll('.protected-link');
+            protectedLinks.forEach(link => {
+                link.style.display = 'none';
+            });
+        }
+    }
+    
+    // 处理用户下拉菜单
+    document.addEventListener('DOMContentLoaded', function() {
+        const userProfile = document.querySelector('.user-profile');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const logoutLink = document.getElementById('logoutLink');
+        
+        // 下拉菜单切换
+        if (userProfile && dropdownMenu) {
+            userProfile.addEventListener('click', function(e) {
+                e.preventDefault();
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // 点击页面其他地方关闭下拉菜单
+            document.addEventListener('click', function(e) {
+                if (!userProfile.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        }
+        
+        // 退出登录处理
+        if (logoutLink) {
+            logoutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                authLogout();
+            });
+        }
+    });
+</script>

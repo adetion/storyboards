@@ -1,0 +1,431 @@
+{
+  "project": {
+    "name": "足球梦",
+    "startDate": "2025-06-01",
+    "endDate": "2025-08-30",
+    "director": "张明",
+    "producer": "李华",
+    "castingDirector": "王 casting"
+  },
+  "characters": [
+    {
+      "id": "char001",
+      "name": "马小川",
+      "description": "本片主角，16岁高中生，热爱足球但学习成绩一般",
+      "gender": "男",
+      "ageRange": "16-18岁",
+      "importance": "主角",
+      "traits": [
+        "热爱足球",
+        "性格冲动",
+        "重情重义",
+        "学习一般"
+      ],
+      "costume": "校服、运动装",
+      "makeup": "日常学生妆，根据场景需要有不同变化",
+      "scenes": [
+        "SC001",
+        "SC002",
+        "SC003",
+        "SC004",
+        "SC005",
+        "SC006",
+        "SC007",
+        "SC008",
+        "SC009",
+        "SC010"
+      ],
+      "lines": "重要",
+      "physicalRequirements": {
+        "height": "170-175cm",
+        "build": "偏瘦",
+        "specialSkills": [
+          "会踢足球",
+          "运动能力强"
+        ]
+      },
+      "status": "cast",
+      "actor": {
+        "id": "act001",
+        "name": "张小明",
+        "contact": "138****0001",
+        "agency": "星光演艺公司",
+        "status": "confirmed",
+        "auditionDate": "2023-06-10",
+        "auditionNotes": "表现力强，符合角色特质",
+        "contractStatus": "已签约"
+      }
+    },
+    {
+      "id": "char002",
+      "name": "李成才",
+      "description": "马小川的父亲，45岁，小卖店老板，对儿子学习要求严格",
+      "gender": "男",
+      "ageRange": "45-50岁",
+      "importance": "重要配角",
+      "traits": [
+        "严厉但关爱孩子",
+        "传统观念重",
+        "为生活奔波"
+      ],
+      "costume": "朴素服装，围裙",
+      "makeup": "日常妆，略显疲惫",
+      "scenes": [
+        "SC002",
+        "SC004",
+        "SC006",
+        "SC008",
+        "SC010",
+        "SC012",
+        "SC015"
+      ],
+      "lines": "重要",
+      "physicalRequirements": {
+        "height": "170-175cm",
+        "build": "中等",
+        "specialSkills": [
+          "无特殊要求"
+        ]
+      },
+      "status": "auditioning",
+      "actor": {
+        "id": "act002",
+        "name": "李建国",
+        "contact": "138****0002",
+        "agency": "自由演员",
+        "status": "pending",
+        "auditionDate": "2023-06-16",
+        "auditionNotes": "外形符合，表演自然，待最终确认",
+        "contractStatus": "待签约"
+      }
+    },
+    {
+      "id": "char003",
+      "name": "老师",
+      "description": "马小川的班主任，35岁，严格但关心学生",
+      "gender": "男",
+      "ageRange": "35-45岁",
+      "importance": "配角",
+      "traits": [
+        "责任心强",
+        "严格但公正",
+        "关心学生"
+      ],
+      "costume": "正式服装，衬衫西裤",
+      "makeup": "日常妆",
+      "scenes": [
+        "SC004",
+        "SC006",
+        "SC008",
+        "SC012"
+      ],
+      "lines": "中等",
+      "physicalRequirements": {
+        "height": "170-180cm",
+        "build": "中等",
+        "specialSkills": [
+          "无特殊要求"
+        ]
+      },
+      "status": "casting",
+      "actor": null
+    },
+    {
+      "id": "char004",
+      "name": "马小川母亲",
+      "description": "马小川的母亲，40岁，温柔但为家庭操劳",
+      "gender": "女",
+      "ageRange": "40-45岁",
+      "importance": "配角",
+      "traits": [
+        "温柔体贴",
+        "为家庭操劳",
+        "理解孩子"
+      ],
+      "costume": "家居服，围裙",
+      "makeup": "日常妆，略显疲惫",
+      "scenes": [
+        "SC006",
+        "SC008",
+        "SC010",
+        "SC012"
+      ],
+      "lines": "中等",
+      "physicalRequirements": {
+        "height": "160-170cm",
+        "build": "中等",
+        "specialSkills": [
+          "无特殊要求"
+        ]
+      },
+      "status": "casting",
+      "actor": null
+    },
+    {
+      "id": "char005",
+      "name": "队友A",
+      "description": "马小川的足球队友",
+      "gender": "男",
+      "ageRange": "16-18岁",
+      "importance": "配角",
+      "traits": [
+        "阳光",
+        "热爱运动",
+        "团队合作"
+      ],
+      "costume": "校服、运动装",
+      "makeup": "日常学生妆",
+      "scenes": [
+        "SC003",
+        "SC005",
+        "SC007",
+        "SC009"
+      ],
+      "lines": "少量",
+      "physicalRequirements": {
+        "height": "170-180cm",
+        "build": "偏瘦或中等",
+        "specialSkills": [
+          "会踢足球"
+        ]
+      },
+      "status": "casting",
+      "actor": null
+    },
+    {
+      "id": "char006",
+      "name": "队友B",
+      "description": "马小川的足球队友",
+      "gender": "男",
+      "ageRange": "16-18岁",
+      "importance": "配角",
+      "traits": [
+        "活泼",
+        "爱开玩笑",
+        "运动能力强"
+      ],
+      "costume": "校服、运动装",
+      "makeup": "日常学生妆",
+      "scenes": [
+        "SC003",
+        "SC005",
+        "SC007",
+        "SC009"
+      ],
+      "lines": "少量",
+      "physicalRequirements": {
+        "height": "170-180cm",
+        "build": "偏瘦或中等",
+        "specialSkills": [
+          "会踢足球"
+        ]
+      },
+      "status": "casting",
+      "actor": null
+    },
+    {
+      "id": "char007",
+      "name": "班主任",
+      "description": "学校班主任，负责宣布考试消息",
+      "gender": "男",
+      "ageRange": "35-45岁",
+      "importance": "客串",
+      "traits": [
+        "威严",
+        "有教育经验"
+      ],
+      "costume": "正式服装",
+      "makeup": "日常妆",
+      "scenes": [
+        "SC004"
+      ],
+      "lines": "少量",
+      "physicalRequirements": {
+        "height": "170-180cm",
+        "build": "中等",
+        "specialSkills": [
+          "无特殊要求"
+        ]
+      },
+      "status": "casting",
+      "actor": null
+    },
+    {
+      "id": "char008",
+      "name": "室友",
+      "description": "马小川的室友",
+      "gender": "男",
+      "ageRange": "16-18岁",
+      "importance": "配角",
+      "traits": [
+        "关心朋友",
+        "学生气质"
+      ],
+      "costume": "校服、家居服",
+      "makeup": "日常学生妆",
+      "scenes": [
+        "SC010"
+      ],
+      "lines": "中等",
+      "physicalRequirements": {
+        "height": "170-180cm",
+        "build": "中等",
+        "specialSkills": [
+          "无特殊要求"
+        ]
+      },
+      "status": "casting",
+      "actor": null
+    }
+  ],
+  "auditions": [
+    {
+      "id": "aud001",
+      "characterId": "char001",
+      "characterName": "马小川",
+      "date": "2023-06-10",
+      "time": "10:00",
+      "location": "演员工作室A",
+      "castingTeam": [
+        "张明(导演)",
+        "王 casting"
+      ],
+      "candidates": [
+        {
+          "actorId": "act001",
+          "name": "张小明",
+          "agency": "星光演艺公司",
+          "status": "selected",
+          "notes": "表现力强，符合角色特质"
+        }
+      ],
+      "status": "completed"
+    },
+    {
+      "id": "aud002",
+      "characterId": "char002",
+      "characterName": "李成才",
+      "date": "2023-06-16",
+      "time": "14:00",
+      "location": "演员工作室B",
+      "castingTeam": [
+        "张明(导演)",
+        "王 casting"
+      ],
+      "candidates": [
+        {
+          "actorId": "act002",
+          "name": "李建国",
+          "agency": "自由演员",
+          "status": "pending",
+          "notes": "外形符合，表演自然"
+        },
+        {
+          "actorId": "act003",
+          "name": "王大力",
+          "agency": "自由演员",
+          "status": "rejected",
+          "notes": "外形不太符合角色设定"
+        }
+      ],
+      "status": "in-progress"
+    }
+  ],
+  "actors": [
+    {
+      "id": "act001",
+      "name": "张小明",
+      "gender": "男",
+      "age": 17,
+      "height": 172,
+      "agency": "星光演艺公司",
+      "contact": "138****0001",
+      "email": "zhangxiaoming@stars.com",
+      "experience": "参演过3部电视剧，2部电影",
+      "specialSkills": [
+        "足球",
+        "游泳"
+      ],
+      "status": "confirmed",
+      "characterId": "char001",
+      "characterName": "马小川",
+      "contractStatus": "signed",
+      "availability": [
+        "2023-06-15",
+        "2023-06-16",
+        "2023-06-17",
+        "2023-06-18",
+        "2023-06-19"
+      ]
+    },
+    {
+      "id": "act002",
+      "name": "李建国",
+      "gender": "男",
+      "age": 47,
+      "height": 173,
+      "agency": "自由演员",
+      "contact": "138****0002",
+      "email": "lijinguo@personal.com",
+      "experience": "参演过10部电视剧，5部电影，多部话剧",
+      "specialSkills": [
+        "无特殊技能"
+      ],
+      "status": "pending",
+      "characterId": "char002",
+      "characterName": "李成才",
+      "contractStatus": "pending",
+      "availability": [
+        "2023-06-15",
+        "2023-06-16",
+        "2023-06-17"
+      ]
+    }
+  ],
+  "schedule": {
+    "2023-06-15": {
+      "date": "2023-06-15",
+      "events": [
+        {
+          "time": "10:00-12:00",
+          "event": "马小川角色试镜回顾",
+          "location": "导演办公室",
+          "participants": [
+            "张明(导演)",
+            "王 casting"
+          ]
+        }
+      ]
+    },
+    "2023-06-16": {
+      "date": "2023-06-16",
+      "events": [
+        {
+          "time": "14:00-16:00",
+          "event": "李成才角色试镜",
+          "location": "演员工作室B",
+          "participants": [
+            "张明(导演)",
+            "王 casting",
+            "李建国(演员)"
+          ]
+        }
+      ]
+    }
+  },
+  "reports": {
+    "castingProgress": {
+      "totalCharacters": 8,
+      "cast": 1,
+      "auditioning": 1,
+      "casting": 6,
+      "completionRate": 25
+    },
+    "timeline": {
+      "startDate": "2023-06-01",
+      "endDate": "2023-06-30",
+      "currentDate": "2023-06-16",
+      "daysRemaining": 14
+    }
+  }
+}

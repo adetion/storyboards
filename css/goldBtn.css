@@ -1,0 +1,116 @@
+/* 使用统一的全局变量，继承自style.css */
+
+.GoldBtn {
+    width: 120px;
+    height: 45px;
+    border: 2px solid #4ecdc4;
+    border-radius: var(--border-radius-lg);
+    background: #4ecdc4;
+    color: transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.GoldBtn::before {
+    position: absolute;
+    content: attr(data-text);
+    /* 使用 data 属性 */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 97%;
+    height: 90%;
+    border-radius: var(--border-radius-md);
+    transition: var(--transition);
+    background-color: rgba(0, 0, 0, 0.8);
+    background-size: 150%;
+}
+
+.GoldBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.GoldBtn:hover::before {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.GoldBtn:active {
+    transform: scale(0.95);
+}
+
+.GoldBtn:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+.GoldBtn2 {
+    width: 220px;
+    height: 45px;
+    border: 2px solid #f8bbd0;
+    border-radius: var(--border-radius-full);
+    background: #f8bbd0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.875em;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+}
+
+.GoldBtn2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    transition: var(--transition-fast);
+}
+
+.logoIcon path {
+    fill: var(--primary-color);
+}
+
+.GoldBtn2:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.GoldBtn2:hover::before {
+    left: 100%;
+    transition: var(--transition);
+}
+
+.GoldBtn2:active {
+    transform: scale(0.95);
+}
+
+.GoldBtn2:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+

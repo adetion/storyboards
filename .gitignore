@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Generated/runtime directories
+logs/
+uploads/
+outputs/
+results/
+cache/
+edits/
+exports/
+
+# Database files
+*.db
+*.sqlite
+
+# Certificates
+pay_cert/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/

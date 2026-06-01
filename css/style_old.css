@@ -1,0 +1,1049 @@
+/* 全局变量 */
+:root {
+	--primary-color: #436ef0;
+	--primary-dark: #2a4cce;
+	--secondary-color: #6c757d;
+	--success-color: #28a745;
+	--danger-color: #dc3545;
+	--warning-color: #ffc107;
+	--info-color: #17a2b8;
+	--light-color: #f8f9fa;
+	--dark-color: #343a40;
+	--white-color: #ffffff;
+	--gray-100: #f8f9fa;
+	--gray-200: #e9ecef;
+	--gray-300: #dee2e6;
+	--gray-400: #ced4da;
+	--gray-500: #adb5bd;
+	--gray-600: #6c757d;
+	--gray-700: #495057;
+	--gray-800: #343a40;
+	--gray-900: #212529;
+	--border-radius: 4px;
+	--box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+	--transition-base: all 0.2s ease-in-out;
+	--drag-transition: all 0.3s ease;
+}
+
+/* 基础重置样式 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--gray-800);
+	background-color: #f5f7fa;
+}
+
+/* 美化下拉框样式 */
+select {
+	display: inline-block;
+	width: 100%;
+	padding: 8px 12px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--gray-800);
+	background-color: var(--white-color);
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right 0.5rem center;
+	background-size: 1.5em 1.5em;
+	border: 1px solid var(--gray-300);
+	border-radius: var(--border-radius);
+	transition: var(--transition-base);
+	box-shadow: var(--box-shadow);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	font-family: inherit;
+}
+
+/* 美化下拉选项 */
+select option {
+	padding: 10px 12px;
+	background-color: var(--white-color);
+	color: var(--gray-800);
+	font-size: 14px;
+	cursor: pointer;
+	transition: var(--transition-base);
+}
+
+select option:hover {
+	background-color: var(--primary-color);
+	color: var(--white-color);
+}
+
+select option:checked {
+	background-color: var(--primary-color);
+	color: var(--white-color);
+}
+
+select option:disabled {
+	background-color: var(--gray-100);
+	color: var(--gray-500);
+	cursor: not-allowed;
+}
+
+select:hover {
+	border-color: var(--gray-400);
+	box-shadow: 0 0 0 0.125rem rgba(0, 0, 0, 0.075);
+}
+
+select:focus {
+	outline: none;
+	border-color: var(--primary-color);
+	box-shadow: 0 0 0 0.2rem rgba(67, 110, 240, 0.25);
+}
+
+select:disabled {
+	opacity: 0.65;
+	background-color: var(--gray-100);
+	cursor: not-allowed;
+}
+
+/* 增强的自定义下拉框容器样式 */
+.custom-select-container {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+.custom-select-container select {
+	width: 100%;
+	z-index: 1;
+	position: relative;
+}
+
+/* 响应式下拉框样式 */
+@media (max-width: 768px) {
+	select {
+		padding: 10px 15px;
+		font-size: 16px;
+		border-radius: 6px;
+	}
+
+	select option {
+		padding: 12px 15px;
+		font-size: 16px;
+	}
+
+	.search-filter select {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
+
+/* 针对Firefox的特殊样式 */
+@-moz-document url-prefix() {
+	select {
+		padding-right: 1.5em !important;
+	}
+
+	select option {
+		padding: 10px 12px;
+	}
+}
+
+/* 针对Safari的特殊样式 */
+@media not all and (min-resolution:.001dpcm) {
+	@supports (-webkit-appearance:none) {
+		select {
+			padding-right: 1.5em;
+		}
+	}
+}
+
+/* 通用按钮样式 */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	border: 1px solid transparent;
+	padding: 0.375rem 0.75rem;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	border-radius: var(--border-radius);
+	transition: var(--transition-base);
+	cursor: pointer;
+	background-color: var(--white-color);
+}
+
+.btn:focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(67, 110, 240, 0.25);
+}
+
+.btn-primary {
+	color: var(--white-color);
+	background-color: var(--primary-color);
+	border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+	background-color: var(--primary-dark);
+	border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+	color: var(--white-color);
+	background-color: var(--secondary-color);
+	border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+	background-color: #5a6268;
+	border-color: #545b62;
+}
+
+.btn-sm {
+	padding: 0.25rem 0.5rem;
+	font-size: 0.75rem;
+}
+
+.btn-dropdown {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.btn-dropdown i:last-child {
+	margin-left: 0.25rem;
+}
+
+.btn-block {
+	display: block;
+	width: 100%;
+}
+
+.btn-icon {
+	background: none;
+	border: none;
+	color: var(--gray-600);
+	padding: 0.5rem;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	transition: var(--transition-base);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn-icon:hover {
+	background-color: var(--gray-200);
+	color: var(--gray-900);
+}
+
+/* 表单控件样式 */
+.form-control {
+	display: block;
+	width: 100%;
+	padding: 0.375rem 0.75rem;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	color: var(--gray-700);
+	background-color: var(--white-color);
+	background-clip: padding-box;
+	border: 1px solid var(--gray-300);
+	border-radius: var(--border-radius);
+	transition: var(--transition-base);
+}
+
+.form-control:focus {
+	color: var(--gray-700);
+	background-color: var(--white-color);
+	border-color: #a9c4fe;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(67, 110, 240, 0.25);
+}
+
+.form-control[readonly] {
+	background-color: var(--gray-100);
+}
+
+.form-group {
+	margin-bottom: 1rem;
+}
+
+.form-group label {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+	font-weight: 500;
+}
+
+/* 顶部导航栏 */
+.main-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 60px;
+	background-color: var(--white-color);
+	box-shadow: var(--box-shadow);
+	padding: 0 1.5rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+
+.header-left {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.project-name {
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: var(--gray-800);
+	margin: 0;
+}
+
+.main-nav ul {
+	display: flex;
+	list-style: none;
+}
+
+.main-nav li {
+	margin: 0 0.25rem;
+}
+
+.main-nav a {
+	display: flex;
+	align-items: center;
+	padding: 0.5rem 1rem;
+	color: var(--gray-600);
+	text-decoration: none;
+	border-radius: var(--border-radius);
+	transition: var(--transition-base);
+	gap: 0.5rem;
+}
+
+.main-nav a:hover,
+.main-nav .active a {
+	color: var(--primary-color);
+	background-color: rgba(67, 110, 240, 0.1);
+}
+
+.main-nav a i {
+	font-size: 0.875rem;
+}
+
+.header-right {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.user-profile img {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+/* 功能区 */
+.function-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 50px;
+	background-color: var(--white-color);
+	border-bottom: 1px solid var(--gray-300);
+	padding: 0 1.5rem;
+	position: fixed;
+	top: 60px;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	max-width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.function-left {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	flex-shrink: 0;
+	max-width: 50%;
+	overflow: hidden;
+}
+
+.tab {
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	border-radius: var(--border-radius);
+	font-weight: 500;
+	flex-shrink: 0;
+	white-space: nowrap;
+}
+
+.tab.active {
+	background-color: var(--primary-color);
+	color: var(--white-color);
+}
+
+.function-right {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-shrink: 0;
+	max-width: 50%;
+	overflow: hidden;
+}
+
+.btn-group {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	flex-shrink: 1;
+	overflow: hidden;
+}
+
+.btn {
+	flex-shrink: 0;
+	white-space: nowrap;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	font-weight: 500;
+	transition: all 0.3s ease;
+}
+
+.btn-secondary {
+	background-color: var(--gray-200);
+	color: var(--gray-800);
+}
+
+.btn-primary {
+	background-color: var(--primary-color);
+	color: var(--white-color);
+}
+
+/* 浮动提示条 */
+.floating-bar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--white-color);
+	box-shadow: var(--box-shadow);
+	z-index: 998;
+	padding: 0 1.5rem;
+}
+
+.bar-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 0;
+}
+
+.bar-info {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.bar-text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.bar-text strong {
+	font-weight: 600;
+}
+
+.bar-actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.close-btn {
+	margin-left: 1rem;
+}
+
+/* 主要内容区域 */
+.main-content {
+	margin-top: 110px;
+	height: calc(100vh - 110px);
+	overflow: auto;
+	/* 允许水平和垂直滚动 */
+}
+
+/* 分镜表格容器 */
+.storyboard-table-container {
+	height: 100%;
+	overflow: auto;
+	position: relative;
+}
+
+/* 分镜表格 */
+.storyboard-table {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 3200px;
+	/* 增加最小宽度以适应更多的列 */
+}
+
+.storyboard-table thead tr {
+	position: sticky;
+	top: 0;
+	background-color: var(--white-color);
+	z-index: 30;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 表格单元格基础样式 */
+.storyboard-table th,
+.storyboard-table td {
+	padding: 0.75rem;
+	text-align: left;
+	border-bottom: 1px solid var(--gray-300);
+	vertical-align: top;
+	border-right: 1px dashed var(--gray-300);
+}
+
+.storyboard-table th:last-child,
+.storyboard-table td:last-child {
+	border-right: none;
+}
+
+.storyboard-table th {
+	font-weight: 600;
+	color: var(--gray-700);
+	background-color: var(--gray-100);
+	white-space: nowrap;
+	text-align: center;
+	/* 表头文字水平居中显示 */
+}
+
+/* 为指定列添加自动换行样式 */
+.storyboard-table td:nth-child(15),
+/* 台词列 */
+.storyboard-table td:nth-child(16),
+/* 剧本列 */
+.storyboard-table td:nth-child(24),
+/* 各角色推荐服装列 */
+.storyboard-table td:nth-child(25),
+/* 各角色推荐妆造列 */
+.storyboard-table td:nth-child(26) {
+	/* 角色动作列 */
+	white-space: normal;
+	word-wrap: break-word;
+	word-break: break-word;
+	line-height: 1.4;
+}
+
+/* 为新增的所有列添加自动换行和高度限制 */
+.storyboard-table tbody td {
+	max-height: 151px;
+	overflow: hidden;
+	position: relative;
+}
+
+/* 为具有auto-wrap类的单元格添加样式（用于JavaScript动态生成的元素） */
+.auto-wrap {
+	white-space: normal;
+	word-wrap: break-word;
+	word-break: break-word;
+	line-height: 1.4;
+	max-height: 151px;
+	overflow: hidden;
+	position: relative;
+}
+
+/* 为所有普通文本单元格添加省略号效果 */
+.storyboard-table tbody td:not(.image-cell):not(.fixed-col):not(.action-col) {
+	max-height: 151px;
+	overflow: hidden;
+	position: relative;
+}
+
+.storyboard-table tbody td:not(.image-cell):not(.fixed-col):not(.action-col)::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+	pointer-events: none;
+	display: none;
+}
+
+.storyboard-table tbody td:not(.image-cell):not(.fixed-col):not(.action-col).text-clamp::after {
+	display: block;
+}
+
+/* 除排序、镜号、画面、参考画面、景别、时长（秒）之外的字段都可自动换行 */
+.storyboard-table tbody td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(5)):not(:nth-child(6)) {
+	white-space: normal;
+	word-wrap: break-word;
+	word-break: break-word;
+	line-height: 1.4;
+}
+
+/* 固定列样式 */
+.storyboard-table .fixed-col {
+	position: sticky;
+	background-color: var(--gray-100);
+	z-index: 25;
+}
+
+.storyboard-table thead .fixed-col:first-child {
+	left: 0;
+	border-right: 1px dashed var(--gray-300);
+}
+
+.storyboard-table thead .fixed-col:nth-child(2) {
+	left: 50px;
+	border-right: 1px dashed var(--gray-300);
+	width: 80px;
+}
+
+.storyboard-table tbody .fixed-col:first-child {
+	left: 0;
+	background-color: var(--white-color);
+	border-right: 1px dashed var(--gray-300);
+}
+
+.storyboard-table tbody .fixed-col:nth-child(2) {
+	left: 50px;
+	background-color: var(--white-color);
+	border-right: 1px dashed var(--gray-300);
+	width: 80px;
+}
+
+/* 确保固定列的右边框始终可见 */
+.storyboard-table .fixed-col {
+	border-right: 1px dashed var(--gray-300) !important;
+}
+
+/* 列宽设置 */
+
+/* 第1列：排序（固定列） */
+.storyboard-table th:nth-child(1),
+.storyboard-table td:nth-child(1) {
+	width: 50px;
+	min-width: 50px;
+	max-width: 50px;
+}
+
+/* 第2列：镜号（固定列） */
+.storyboard-table th:nth-child(2),
+.storyboard-table td:nth-child(2) {
+	width: 80px;
+	min-width: 80px;
+	max-width: 80px;
+}
+
+/* 第3列：画面 */
+.storyboard-table th:nth-child(3),
+.storyboard-table td:nth-child(3) {
+	width: 268.444px;
+	/* 更新为新的图片列宽度 */
+	min-width: 268.444px;
+}
+
+/* 第4列：参考画面 */
+.storyboard-table th:nth-child(4),
+.storyboard-table td:nth-child(4) {
+	width: 268.444px;
+	/* 更新为新的参考图列宽度 */
+	min-width: 268.444px;
+}
+
+/* 第5列：景别 */
+.storyboard-table th:nth-child(5),
+.storyboard-table td:nth-child(5) {
+	width: 100px;
+	min-width: 100px;
+}
+
+/* 第6列：时长(秒) */
+.storyboard-table th:nth-child(6),
+.storyboard-table td:nth-child(6) {
+	width: 80px;
+	min-width: 80px;
+}
+
+/* 第7列：内容 */
+.storyboard-table th:nth-child(7),
+.storyboard-table td:nth-child(7) {
+	width: 200px;
+	min-width: 200px;
+}
+
+/* 第8列：备注 */
+.storyboard-table th:nth-child(8),
+.storyboard-table td:nth-child(8) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第9列：场景预期 */
+.storyboard-table th:nth-child(9),
+.storyboard-table td:nth-child(9) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第10列：声音 */
+.storyboard-table th:nth-child(10),
+.storyboard-table td:nth-child(10) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第11列：摄像机角度 */
+.storyboard-table th:nth-child(11),
+.storyboard-table td:nth-child(11) {
+	width: 120px;
+	min-width: 120px;
+}
+
+/* 第12列：运镜 */
+.storyboard-table th:nth-child(12),
+.storyboard-table td:nth-child(12) {
+	width: 100px;
+	min-width: 100px;
+}
+
+/* 第13列：摄像机装备 */
+.storyboard-table th:nth-child(13),
+.storyboard-table td:nth-child(13) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第14列：镜头焦段 */
+.storyboard-table th:nth-child(14),
+.storyboard-table td:nth-child(14) {
+	width: 100px;
+	min-width: 100px;
+}
+
+/* 第15列：构图与焦点 */
+.storyboard-table th:nth-child(15),
+.storyboard-table td:nth-child(15) {
+	width: 360px;
+	min-width: 360px;
+}
+
+/* 新增列的宽度设置 */
+
+/* 第16列：光线与色调 */
+.storyboard-table th:nth-child(16),
+.storyboard-table td:nth-child(16) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第17列：地点 */
+.storyboard-table th:nth-child(17),
+.storyboard-table td:nth-child(17) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第18列：时间 */
+.storyboard-table th:nth-child(18),
+.storyboard-table td:nth-child(18) {
+	width: 100px;
+	min-width: 100px;
+}
+
+/* 第19列：天气 */
+.storyboard-table th:nth-child(19),
+.storyboard-table td:nth-child(19) {
+	width: 100px;
+	min-width: 100px;
+}
+
+/* 第20列：台词 */
+.storyboard-table th:nth-child(20),
+.storyboard-table td:nth-child(20) {
+	width: 600px;
+	min-width: 600px;
+}
+
+/* 第21列：剧本 */
+.storyboard-table th:nth-child(21),
+.storyboard-table td:nth-child(21) {
+	width: 750px;
+	min-width: 750px;
+}
+
+/* 第22列：角色清单 */
+.storyboard-table th:nth-child(22),
+.storyboard-table td:nth-child(22) {
+	width: 200px;
+	min-width: 200px;
+}
+
+/* 第23列：各角色推荐服装 */
+.storyboard-table th:nth-child(23),
+.storyboard-table td:nth-child(23) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第24列：各角色推荐妆造 */
+.storyboard-table th:nth-child(24),
+.storyboard-table td:nth-child(24) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第25列：角色动作 */
+.storyboard-table th:nth-child(25),
+.storyboard-table td:nth-child(25) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第26列：道具 */
+.storyboard-table th:nth-child(26),
+.storyboard-table td:nth-child(26) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 第27列：自定义列 */
+.storyboard-table th:nth-child(27),
+.storyboard-table td:nth-child(27) {
+	width: 150px;
+	min-width: 150px;
+}
+
+/* 操作列 */
+.storyboard-table .action-col {
+	width: 40px;
+	min-width: 40px;
+	text-align: center;
+}
+
+/* 场次条 */
+.scene-header td {
+	padding: 0;
+	background-color: var(--gray-200);
+	border-bottom: 1px solid var(--gray-300);
+}
+
+.scene-header-content {
+	display: flex;
+	align-items: center;
+	padding: 0.75rem 1rem;
+	gap: 0.75rem;
+	position: sticky;
+	left: 0;
+	min-width: 3200px;
+	/* 增加最小宽度 */
+	z-index: 15;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.scene-info {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.scene-name {
+	font-weight: 600;
+}
+
+.scene-number {
+	font-size: 0.75rem;
+	color: var(--gray-600);
+}
+
+.scene-tags {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.tag {
+	background-color: var(--gray-300);
+	padding: 0.25rem 0.5rem;
+	border-radius: 2px;
+	font-size: 0.75rem;
+}
+
+.scene-actions {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.expand-btn {
+	background: none;
+	border: none;
+	color: var(--gray-700);
+	cursor: pointer;
+	padding: 0.25rem;
+}
+
+.drag-handle {
+	cursor: move;
+	color: var(--gray-500);
+}
+
+/* 分镜行 */
+.shot-row td {
+	background-color: var(--white-color);
+	white-space: nowrap;
+}
+
+/* 斑马线样式 */
+.shot-row:nth-child(even) td {
+	background-color: #f8f9fa;
+}
+
+.shot-row:nth-child(odd) td {
+	background-color: #ffffff;
+}
+
+/* 固定列的斑马线样式 */
+.shot-row:nth-child(even) .fixed-col:first-child,
+.shot-row:nth-child(even) .fixed-col:nth-child(2) {
+	background-color: #f8f9fa;
+}
+
+.shot-row:nth-child(odd) .fixed-col:first-child,
+.shot-row:nth-child(odd) .fixed-col:nth-child(2) {
+	background-color: #ffffff;
+}
+
+/* 表体中除场次条外所有分镜的对齐方式 */
+.shot-row td {
+	vertical-align: middle;
+	/* 垂直居中 */
+}
+
+/* 镜号、景别、时长（秒）这三个字段水平居中并垂直居中显示 */
+.shot-row td:nth-child(2),
+/* 镜号 */
+.shot-row td:nth-child(5),
+/* 景别 */
+.shot-row td:nth-child(6) {
+	/* 时长（秒） */
+	text-align: center;
+}
+
+.image-cell {
+	width: 268.444px;
+	height: 151px;
+}
+
+.image-placeholder,
+.reference-placeholder {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 1px dashed var(--gray-300);
+	border-radius: var(--border-radius);
+	text-align: center;
+	font-size: 0.75rem;
+	color: var(--gray-500);
+	gap: 0.25rem;
+}
+
+.image-placeholder i,
+.reference-placeholder i {
+	font-size: 1rem;
+}
+
+.reference-text {
+	padding: 0.25rem;
+	font-size: 0.7rem;
+	line-height: 1.3;
+}
+
+/* 拖拽样式 */
+.scene-header.dragging,
+.shot-row.dragging {
+	opacity: 0.9;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	position: relative;
+	z-index: 100;
+	transition: var(--drag-transition);
+}
+
+/* 拖拽占位符 */
+.drag-placeholder {
+	background-color: rgba(67, 110, 240, 0.1);
+	border: 2px dashed var(--primary-color);
+	transition: var(--drag-transition);
+}
+
+/* 拖拽插入动画 */
+.drag-insert-animation {
+	animation: insertSlide 0.3s ease-out;
+}
+
+@keyframes insertSlide {
+	from {
+		transform: translateX(-20px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+	.main-header {
+		padding: 0 1rem;
+	}
+
+	.function-bar {
+		padding: 0 1rem;
+	}
+
+	.floating-bar {
+		padding: 0 1rem;
+	}
+
+	.main-content {
+		margin-top: 110px;
+	}
+
+	.scene-header-content {
+		min-width: 800px;
+	}
+}
+
+@media (max-width: 768px) {
+	.main-nav ul {
+		display: none;
+	}
+
+	.header-right .btn-icon:not(:last-child) {
+		display: none;
+	}
+
+	.scene-header-content {
+		min-width: 600px;
+	}
+}

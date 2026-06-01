@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册 - 智影工场</title>
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .form .title {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* 输入容器样式 */
+        .form .input-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form .input-container i {
+            color: rgba(255, 255, 255, 0.6);
+            margin-right: 10px;
+        }
+
+        .form .input-container .input {
+            background: none;
+            border: none;
+            padding: 1rem;
+            color: white;
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .form .input-container .input:focus {
+            outline: none;
+            color: #ffe0a6;
+        }
+
+        .form .input-container:focus-within {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .form .input-container:focus-within i {
+            color: white;
+        }
+
+        /* 登录按钮样式 */
+        .form .login-button {
+            width: 100%;
+        }
+
+        .form .login-button .input,
+        .btn-code {
+            cursor: pointer;
+            padding: 1rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .form .login-button .input:hover,
+        .btn-code:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .form .login-button .input:active,
+        .btn-code:active {
+            transform: translateY(0);
+        }
+
+        .btn-code:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* 验证码按钮 */
+        .verification-group {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .verification-group .input-container {
+            flex: 1;
+        }
+
+        .verification-group .btn-code {
+            width: auto;
+            padding: 0 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* 消息提示 */
+        .message {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .message.success {
+            background-color: rgba(52, 168, 83, 0.2);
+            color: #34a853;
+        }
+
+        .message.error {
+            background-color: rgba(234, 67, 53, 0.2);
+            color: #ea4335;
+        }
+
+        /* 注册方式切换标签 */
+        .register-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .tab.active {
+            color: white;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 表单面板 */
+        .form-panel {
+            display: none;
+            width: 100%;
+        }
+
+        .form-panel.active {
+            display: block;
+        }
+
+        /* 登录链接 */
+        .login-link {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .login-link a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .login-link a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* 纹理层 */
+        .form .texture {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <!-- 注册表单容器 -->
+            <div class="form-panel active" id="register-form">
+                <div class="wrapper"> 
+                    <form class="form"> 
+                        <span class="title">智影工场</span>
+
+                        <!-- 注册方式切换标签 -->
+                        <div class="register-tabs">
+                            <div class="tab active" data-panel="phone-register">手机号注册</div>
+                            <div class="tab" data-panel="email-register" style="display:none;">邮箱注册</div>
+                        </div>
+
+                        <!-- 手机号验证码注册表单 -->
+                        <div class="form-panel active" id="phone-register">
+                            <!-- 手机号输入 -->
+                            <div class="input-container"> 
+                                <i class="fas fa-phone-alt"></i>
+                                <input class="input" type="tel" id="phone" placeholder="手机号" />
+                            </div>
+
+                            <!-- 验证码输入 -->
+                            <div class="verification-group">
+                                <div class="input-container"> 
+                                    <i class="fas fa-shield-alt"></i>
+                                    <input class="input" type="text" id="phone-code" placeholder="验证码" />
+                                </div>
+                                <button class="btn-code" id="send-phone-code" type="button" onclick="sendSmsCode_frontend()">发送验证码</button>
+                            </div>
+
+                            <!-- 用户名输入 -->
+                            <div class="input-container"> 
+                                <i class="fas fa-user"></i>
+                                <input class="input" type="text" id="username" placeholder="用户名" />
+                            </div>
+
+                            <!-- 密码输入 -->
+                            <div class="input-container"> 
+                                <i class="fas fa-lock"></i>
+                                <input class="input" type="password" id="password" placeholder="密码" />
+                            </div>
+
+                            <!-- 确认密码输入 -->
+                            <div class="input-container"> 
+                                <i class="fas fa-lock"></i>
+                                <input class="input" type="password" id="confirm-password" placeholder="确认密码" />
+                            </div>
+
+                            <!-- 注册按钮 -->
+                            <div class="login-button">
+                                <button class="input" type="button" onclick="register('phone')">注册</button>
+                            </div>
+                        </div>
+
+                        <!-- 邮箱验证码注册表单 -->
+                        <div class="form-panel" id="email-register">
+                            <!-- 邮箱输入 -->
+                            <div class="input-container"> 
+                                <i class="fas fa-envelope"></i>
+                                <input class="input" type="email" id="email" placeholder="邮箱" />
+                            </div>
+
+                            <!-- 验证码输入 -->
+                            <div class="verification-group">
+                                <div class="input-container"> 
+                                    <i class="fas fa-shield-alt"></i>
+                                    <input class="input" type="text" id="email-code" placeholder="验证码" />
+                                </div>
+                                <button class="btn-code" id="send-email-code" type="button" onclick="sendEmailCode()">发送验证码</button>
+                            </div>
+
+                            <!-- 用户名输入 -->
+                            <div class="input-container"> 
+                                <i class="fas fa-user"></i>
+                                <input class="input" type="text" id="email-username" placeholder="用户名" />
+                            </div>
+
+                            <!-- 密码输入 -->
+                            <div class="input-container"> 
+                                <i class="fas fa-lock"></i>
+                                <input class="input" type="password" id="email-password" placeholder="密码" />
+                            </div>
+
+                            <!-- 确认密码输入 -->
+                            <div class="input-container"> 
+                                <i class="fas fa-lock"></i>
+                                <input class="input" type="password" id="email-confirm-password" placeholder="确认密码" />
+                            </div>
+
+                            <!-- 注册按钮 -->
+                            <div class="login-button">
+                                <button class="input" type="button" onclick="register('email')">注册</button>
+                            </div>
+                        </div>
+
+                        <div class="texture"></div>
+
+                        <!-- 消息提示 -->
+                        <div class="message" id="message"></div>
+
+                        <!-- 登录链接 -->
+                        <div class="login-link">
+                            <a href="login.html">已有账号？立即登录</a>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // 页面加载时检查登录状态
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+            
+            // 注册方式切换
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const panelId = this.dataset.panel;
+                    
+                    // 切换标签状态
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 切换表单面板
+                    const panels = document.querySelectorAll('.form-panel');
+                    panels.forEach(p => p.classList.remove('active'));
+                    document.getElementById(panelId).classList.add('active');
+                });
+            });
+        });
+        
+        // 显示消息
+        function showMessage(text, type) {
+            const message = document.getElementById('message');
+            message.textContent = text;
+            message.className = 'message ' + type;
+            message.style.display = 'block';
+            
+            // 3秒后隐藏消息
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
+        }
+        
+        // 发送短信验证码
+        function sendSmsCode_frontend() {
+            const phone = document.getElementById('phone').value.trim();
+            if (!phone) {
+                showMessage('请输入手机号', 'error');
+                return;
+            }
+            
+            if (!/^1[3-9]\d{9}$/.test(phone)) {
+                showMessage('无效的手机号格式', 'error');
+                return;
+            }
+            
+            // 获取发送按钮
+            const button = document.getElementById('send-phone-code');
+            if (button) {
+                button.disabled = true;
+                button.textContent = '发送中...';
+            }
+            
+            // 发送验证码请求
+            const data = { phone: phone };
+            sendRequest('auth_api.php?action=sendSms', data)
+                .then(response => {
+                    if (response.success) {
+                        showMessage(response.message || '验证码发送成功', 'success');
+                        
+                        // 倒计时
+                        let countdown = 60;
+                        if (button) {
+                            button.textContent = `${countdown}秒后重试`;
+                            
+                            const timer = setInterval(() => {
+                                countdown--;
+                                button.textContent = `${countdown}秒后重试`;
+                                
+                                if (countdown <= 0) {
+                                    clearInterval(timer);
+                                    button.disabled = false;
+                                    button.textContent = '发送验证码';
+                                }
+                            }, 1000);
+                        }
+                    } else {
+                        showMessage(response.message || '验证码发送失败', 'error');
+                        if (button) {
+                            button.disabled = false;
+                            button.textContent = '发送验证码';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('发送验证码失败:', error);
+                    showMessage('发送验证码失败，请稍后重试', 'error');
+                    if (button) {
+                        button.disabled = false;
+                        button.textContent = '发送验证码';
+                    }
+                });
+        }
+        
+        // 发送邮箱验证码
+        function sendEmailCode() {
+            const email = document.getElementById('email').value.trim();
+            if (!email) {
+                showMessage('请输入邮箱', 'error');
+                return;
+            }
+            
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showMessage('无效的邮箱格式', 'error');
+                return;
+            }
+            
+            // 获取发送按钮
+            const button = document.getElementById('send-email-code');
+            if (button) {
+                button.disabled = true;
+                button.textContent = '发送中...';
+            }
+            
+            // 发送验证码请求
+            const data = { email: email };
+            sendRequest('auth_api.php?action=sendEmail', data)
+                .then(response => {
+                    if (response.success) {
+                        showMessage(response.message || '验证码发送成功', 'success');
+                        
+                        // 倒计时
+                        let countdown = 60;
+                        if (button) {
+                            button.textContent = `${countdown}秒后重试`;
+                            
+                            const timer = setInterval(() => {
+                                countdown--;
+                                button.textContent = `${countdown}秒后重试`;
+                                
+                                if (countdown <= 0) {
+                                    clearInterval(timer);
+                                    button.disabled = false;
+                                    button.textContent = '发送验证码';
+                                }
+                            }, 1000);
+                        }
+                    } else {
+                        showMessage(response.message || '验证码发送失败', 'error');
+                        if (button) {
+                            button.disabled = false;
+                            button.textContent = '发送验证码';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('发送验证码失败:', error);
+                    showMessage('发送验证码失败，请稍后重试', 'error');
+                    if (button) {
+                        button.disabled = false;
+                        button.textContent = '发送验证码';
+                    }
+                });
+        }
+        
+        // 注册函数
+        function register(type) {
+            let phone, email, code, username, password, confirmPassword;
+            
+            if (type === 'phone') {
+                phone = document.getElementById('phone').value.trim();
+                code = document.getElementById('phone-code').value.trim();
+                username = document.getElementById('username').value.trim();
+                password = document.getElementById('password').value;
+                confirmPassword = document.getElementById('confirm-password').value;
+                email = '';
+            } else if (type === 'email') {
+                email = document.getElementById('email').value.trim();
+                code = document.getElementById('email-code').value.trim();
+                username = document.getElementById('email-username').value.trim();
+                password = document.getElementById('email-password').value;
+                confirmPassword = document.getElementById('email-confirm-password').value;
+                phone = '';
+            }
+            
+            // 前端验证
+            if (!username) {
+                showMessage('请输入用户名', 'error');
+                return;
+            }
+            
+            if (username.length < 3 || username.length > 20) {
+                showMessage('用户名长度应在3-20个字符之间', 'error');
+                return;
+            }
+            
+            if (!password) {
+                showMessage('请输入密码', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showMessage('密码长度不能少于6个字符', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showMessage('两次输入的密码不一致', 'error');
+                return;
+            }
+            
+            if (type === 'phone') {
+                if (!phone) {
+                    showMessage('请输入手机号', 'error');
+                    return;
+                }
+                
+                if (!/^1[3-9]\d{9}$/.test(phone)) {
+                    showMessage('无效的手机号格式', 'error');
+                    return;
+                }
+                
+                if (!code) {
+                    showMessage('请输入验证码', 'error');
+                    return;
+                }
+            } else if (type === 'email') {
+                if (!email) {
+                    showMessage('请输入邮箱', 'error');
+                    return;
+                }
+                
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showMessage('无效的邮箱格式', 'error');
+                    return;
+                }
+                
+                if (!code) {
+                    showMessage('请输入验证码', 'error');
+                    return;
+                }
+            }
+            
+            // 调用auth.js中的注册函数，传递验证码
+            const registerData = {
+                username: username,
+                password: password,
+                phone: phone,
+                email: email
+            };
+            
+            // 根据注册类型添加对应的验证码字段
+            if (type === 'phone') {
+                registerData.phone_code = code;
+            } else if (type === 'email') {
+                registerData.email_code = code;
+            }
+            
+            registerUser(registerData);
+        }
+        
+        // 更新用户信息显示
+        function updateUserInfo(user) {
+            if (user) {
+                // 如果已登录，跳转到用户中心
+                setTimeout(() => {
+                    window.location.href = 'usercenter.php';
+                }, 1500);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,702 @@
+{
+  "project": {
+    "name": "足球梦",
+    "startDate": "2025-06-01",
+    "endDate": "2025-06-30",
+    "totalScenes": 27,
+    "totalShots": 156,
+    "estimatedDays": 15,
+    "actualDays": 3,
+    "daysCompleted": 2,
+    "director": "张明",
+    "producer": "李华",
+    "cinematographer": "王强",
+    "scriptSupervisor": "陈丽",
+    "productionDesigner": "刘美工",
+    "costumeDesigner": "赵服装",
+    "castingDirector": "王 casting",
+    "keyGrip": "张师傅",
+    "bestBoy": "李助理"
+  },
+  "schedule": {
+    "2025-06-12": {
+      "date": "2025-06-12",
+      "dayOfWeek": "星期一",
+      "weather": "晴，25-30°C",
+      "location": "学校外景场地",
+      "status": "in-progress",
+      "callTime": "07:00",
+      "shootTime": "08:00",
+      "wrapTime": "18:00",
+      "scenes": [
+        {
+          "sceneId": "SC001",
+          "sceneName": "场次 1 - 小卖店外",
+          "sceneNumber": 1,
+          "pageNumbers": "1-3",
+          "location": "小卖店外",
+          "type": "外景",
+          "setting": "日戏",
+          "priority": "high",
+          "estimatedDuration": 2,
+          "actualDuration": 1.5,
+          "startTime": "08:00",
+          "endTime": "09:30",
+          "status": "completed",
+          "scriptNotes": "中国队进球，马小川激动拍打电视",
+          "shots": [
+            {
+              "shotId": "SC001-S01",
+              "shotType": "全景",
+              "duration": 8,
+              "status": "completed"
+            },
+            {
+              "shotId": "SC001-S02",
+              "shotType": "特写",
+              "duration": 5,
+              "status": "completed"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "07:00",
+              "arrivalTime": "07:30",
+              "costume": "脏旧T恤和短裤",
+              "makeup": "蓬乱头发，脸上有黑灰污渍"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        },
+        {
+          "sceneId": "SC002",
+          "sceneName": "场次 2 - 小卖店内",
+          "sceneNumber": 2,
+          "pageNumbers": "4-6",
+          "location": "小卖店内",
+          "type": "内景",
+          "setting": "日戏",
+          "priority": "medium",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "10:30",
+          "endTime": "12:30",
+          "status": "scheduled",
+          "scriptNotes": "马小川拍打电视机，李成才询问情况",
+          "shots": [
+            {
+              "shotId": "SC002-S01",
+              "shotType": "中景",
+              "duration": 6,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "09:30",
+              "arrivalTime": "09:45",
+              "costume": "脏旧T恤和短裤",
+              "makeup": "蓬乱头发，脸上有黑灰污渍"
+            },
+            {
+              "character": "李成才",
+              "actor": "李建国",
+              "callTime": "10:00",
+              "arrivalTime": "10:15",
+              "costume": "简单衬衫和裤子",
+              "makeup": "整洁短发，轻微汗渍"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        }
+      ]
+    },
+    "2025-06-13": {
+      "date": "2025-06-13",
+      "dayOfWeek": "星期二",
+      "weather": "多云，24-28°C",
+      "location": "操场/教室",
+      "status": "scheduled",
+      "callTime": "07:00",
+      "shootTime": "08:00",
+      "wrapTime": "18:00",
+      "scenes": [
+        {
+          "sceneId": "SC003",
+          "sceneName": "场次 3 - 操场",
+          "sceneNumber": 3,
+          "pageNumbers": "7-9",
+          "location": "操场",
+          "type": "外景",
+          "setting": "日戏",
+          "priority": "high",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "08:00",
+          "endTime": "10:00",
+          "status": "scheduled",
+          "scriptNotes": "马小川在操场上发泄情绪，踢球",
+          "shots": [
+            {
+              "shotId": "SC003-S01",
+              "shotType": "全景",
+              "duration": 15,
+              "status": "not-started"
+            },
+            {
+              "shotId": "SC003-S02",
+              "shotType": "中景",
+              "duration": 10,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "07:30",
+              "arrivalTime": "08:00",
+              "costume": "校服蓝色",
+              "makeup": "运动后出汗效果"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        },
+        {
+          "sceneId": "SC004",
+          "sceneName": "场次 4 - 教室",
+          "sceneNumber": 4,
+          "pageNumbers": "10-12",
+          "location": "教室",
+          "type": "内景",
+          "setting": "日戏",
+          "priority": "medium",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "status": "scheduled",
+          "scriptNotes": "马小川在教室里无心学习",
+          "shots": [
+            {
+              "shotId": "SC004-S01",
+              "shotType": "特写",
+              "duration": 8,
+              "status": "not-started"
+            },
+            {
+              "shotId": "SC004-S02",
+              "shotType": "中景",
+              "duration": 12,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "13:30",
+              "arrivalTime": "14:00",
+              "costume": "校服蓝色",
+              "makeup": "日常学生妆"
+            },
+            {
+              "character": "老师",
+              "actor": "王老师",
+              "callTime": "13:30",
+              "arrivalTime": "14:00",
+              "costume": "教师服装",
+              "makeup": "日常妆"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        }
+      ]
+    },
+    "2025-06-14": {
+      "date": "2025-06-14",
+      "dayOfWeek": "星期三",
+      "weather": "阴，22-26°C",
+      "location": "宿舍/教室",
+      "status": "scheduled",
+      "callTime": "07:00",
+      "shootTime": "08:00",
+      "wrapTime": "18:00",
+      "scenes": [
+        {
+          "sceneId": "SC005",
+          "sceneName": "场次 5 - 宿舍",
+          "sceneNumber": 5,
+          "pageNumbers": "13-16",
+          "location": "宿舍",
+          "type": "内景",
+          "setting": "夜戏",
+          "priority": "medium",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "08:00",
+          "endTime": "10:00",
+          "status": "scheduled",
+          "scriptNotes": "马小川在宿舍里反思",
+          "shots": [
+            {
+              "shotId": "SC005-S01",
+              "shotType": "特写",
+              "duration": 10,
+              "status": "not-started"
+            },
+            {
+              "shotId": "SC005-S02",
+              "shotType": "中景",
+              "duration": 15,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "07:30",
+              "arrivalTime": "08:00",
+              "costume": "睡衣",
+              "makeup": "疲惫妆效"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        },
+        {
+          "sceneId": "SC006",
+          "sceneName": "场次 6 - 教室",
+          "sceneNumber": 6,
+          "pageNumbers": "17-19",
+          "location": "教室",
+          "type": "内景",
+          "setting": "日戏",
+          "priority": "medium",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "status": "scheduled",
+          "scriptNotes": "马小川在教室里认真学习",
+          "shots": [
+            {
+              "shotId": "SC006-S01",
+              "shotType": "中景",
+              "duration": 12,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "13:30",
+              "arrivalTime": "14:00",
+              "costume": "校服蓝色",
+              "makeup": "日常学生妆"
+            },
+            {
+              "character": "老师",
+              "actor": "王老师",
+              "callTime": "13:30",
+              "arrivalTime": "14:00",
+              "costume": "教师服装",
+              "makeup": "日常妆"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        }
+      ]
+    },
+    "2025-06-15": {
+      "date": "2025-06-15",
+      "dayOfWeek": "星期四",
+      "weather": "晴，26-31°C",
+      "location": "操场/教室",
+      "status": "scheduled",
+      "callTime": "07:00",
+      "shootTime": "08:00",
+      "wrapTime": "18:00",
+      "scenes": [
+        {
+          "sceneId": "SC007",
+          "sceneName": "场次 7 - 操场",
+          "sceneNumber": 7,
+          "pageNumbers": "20-22",
+          "location": "操场",
+          "type": "外景",
+          "setting": "日戏",
+          "priority": "medium",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "08:00",
+          "endTime": "10:00",
+          "status": "scheduled",
+          "scriptNotes": "马小川在操场上发泄情绪，踢球",
+          "shots": [
+            {
+              "shotId": "SC007-S01",
+              "shotType": "全景",
+              "duration": 15,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "07:30",
+              "arrivalTime": "08:00",
+              "costume": "校服蓝色",
+              "makeup": "运动后出汗效果"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        },
+        {
+          "sceneId": "SC008",
+          "sceneName": "场次 8 - 教室",
+          "sceneNumber": 8,
+          "pageNumbers": "23-25",
+          "location": "教室",
+          "type": "内景",
+          "setting": "日戏",
+          "priority": "medium",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "status": "scheduled",
+          "scriptNotes": "马小川在教室里无心学习",
+          "shots": [
+            {
+              "shotId": "SC008-S01",
+              "shotType": "特写",
+              "duration": 8,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "13:30",
+              "arrivalTime": "14:00",
+              "costume": "校服蓝色",
+              "makeup": "日常学生妆"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        }
+      ]
+    },
+    "2025-06-16": {
+      "date": "2025-06-16",
+      "dayOfWeek": "星期五",
+      "weather": "多云，24-28°C",
+      "location": "小卖店/宿舍",
+      "status": "scheduled",
+      "callTime": "08:00",
+      "shootTime": "09:00",
+      "wrapTime": "17:00",
+      "scenes": [
+        {
+          "sceneId": "SC009",
+          "sceneName": "场次 9 - 小卖店内",
+          "sceneNumber": 9,
+          "pageNumbers": "26-28",
+          "location": "小卖店内",
+          "type": "内景",
+          "setting": "日戏",
+          "priority": "medium",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "09:00",
+          "endTime": "11:00",
+          "status": "scheduled",
+          "scriptNotes": "马小川和父亲在小卖店对话",
+          "shots": [
+            {
+              "shotId": "SC009-S01",
+              "shotType": "中景",
+              "duration": 12,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "08:30",
+              "arrivalTime": "09:00",
+              "costume": "脏旧T恤和短裤",
+              "makeup": "蓬乱头发"
+            },
+            {
+              "character": "李成才",
+              "actor": "李建国",
+              "callTime": "08:30",
+              "arrivalTime": "09:00",
+              "costume": "简单衬衫和裤子",
+              "makeup": "整洁短发"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        },
+        {
+          "sceneId": "SC010",
+          "sceneName": "场次 10 - 宿舍",
+          "sceneNumber": 10,
+          "pageNumbers": "29-31",
+          "location": "宿舍",
+          "type": "内景",
+          "setting": "日戏",
+          "priority": "medium",
+          "estimatedDuration": 2,
+          "actualDuration": 0,
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "status": "scheduled",
+          "scriptNotes": "马小川在宿舍里反思",
+          "shots": [
+            {
+              "shotId": "SC010-S01",
+              "shotType": "特写",
+              "duration": 10,
+              "status": "not-started"
+            }
+          ],
+          "actors": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "callTime": "13:30",
+              "arrivalTime": "14:00",
+              "costume": "校服蓝色",
+              "makeup": "日常学生妆"
+            }
+          ],
+          "crew": {
+            "cinematographer": "王强",
+            "scriptSupervisor": "陈丽",
+            "keyGrip": "张师傅"
+          }
+        }
+      ]
+    }
+  },
+  "statistics": {
+    "totalScenesCompleted": 2,
+    "totalShotsCompleted": 7,
+    "completionRate": 13,
+    "totalScenes": 27,
+    "totalShots": 156,
+    "completedDays": 1,
+    "totalDays": 15
+  },
+  "resources": {
+    "actors": [
+      {
+        "name": "张小明",
+        "character": "马小川",
+        "roleId": "char001",
+        "contact": "138****1234",
+        "schedule": {
+          "startDate": "2025-06-12",
+          "endDate": "2025-06-16"
+        },
+        "notes": "男主角，表现良好"
+      },
+      {
+        "name": "李建国",
+        "character": "李成才",
+        "roleId": "char002",
+        "contact": "138****5678",
+        "schedule": {
+          "startDate": "2025-06-12",
+          "endDate": "2025-06-16"
+        },
+        "notes": "配角，父亲角色"
+      },
+      {
+        "name": "王老师",
+        "character": "老师",
+        "roleId": "char003",
+        "contact": "138****9012",
+        "schedule": {
+          "startDate": "2025-06-13",
+          "endDate": "2025-06-14"
+        },
+        "notes": "配角，教师角色"
+      }
+    ],
+    "equipment": [
+      {
+        "item": "ARRI ALEXA Mini LF",
+        "quantity": 1,
+        "status": "in-use",
+        "assignedTo": "王强"
+      },
+      {
+        "item": "Sony FX9",
+        "quantity": 1,
+        "status": "in-use",
+        "assignedTo": "王强"
+      },
+      {
+        "item": "Canon C500 Mark II",
+        "quantity": 1,
+        "status": "in-use",
+        "assignedTo": "摄影师B"
+      }
+    ],
+    "locations": [
+      {
+        "name": "学校外景场地",
+        "address": "北京市朝阳区某中学",
+        "contact": "张场务 138****1111",
+        "availability": "工作日可用"
+      },
+      {
+        "name": "操场",
+        "address": "北京市朝阳区某中学",
+        "contact": "张场务 138****1111",
+        "availability": "工作日可用"
+      },
+      {
+        "name": "教室",
+        "address": "北京市朝阳区某中学",
+        "contact": "张场务 138****1111",
+        "availability": "工作日可用"
+      },
+      {
+        "name": "小卖店",
+        "address": "北京市朝阳区某中学",
+        "contact": "张场务 138****1111",
+        "availability": "工作日可用"
+      },
+      {
+        "name": "宿舍",
+        "address": "北京市朝阳区某中学",
+        "contact": "张场务 138****1111",
+        "availability": "工作日可用"
+      }
+    ]
+  },
+  "crew": {
+    "keyCrew": [
+      {
+        "name": "张明",
+        "role": "导演",
+        "contact": "138****0001"
+      },
+      {
+        "name": "李华",
+        "role": "制片主任",
+        "contact": "138****0002"
+      },
+      {
+        "name": "王强",
+        "role": "摄影指导",
+        "contact": "138****0003"
+      }
+    ],
+    "departments": [
+      {
+        "name": "导演组",
+        "members": [
+          "张明 (导演)",
+          "小助理 (副导演)"
+        ]
+      },
+      {
+        "name": "摄影组",
+        "members": [
+          "王强 (摄影指导)",
+          "摄影师B",
+          "跟焦员"
+        ]
+      },
+      {
+        "name": "灯光组",
+        "members": [
+          "李师傅 (灯光师)",
+          "灯光助理A",
+          "灯光助理B"
+        ]
+      },
+      {
+        "name": "录音组",
+        "members": [
+          "赵工 (录音师)",
+          "录音助理"
+        ]
+      },
+      {
+        "name": "美术组",
+        "members": [
+          "刘美工 (美术指导)",
+          "道具师",
+          "置景师"
+        ]
+      },
+      {
+        "name": "服装组",
+        "members": [
+          "赵服装 (服装师)",
+          "化妆师",
+          "服装助理"
+        ]
+      },
+      {
+        "name": "演员组",
+        "members": [
+          "王 casting (演员统筹)",
+          "化妆师",
+          "服装助理"
+        ]
+      }
+    ]
+  }
+}

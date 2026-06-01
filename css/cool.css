@@ -1,0 +1,673 @@
+/* 使用统一的全局变量，继承自style.css */
+
+/* ========== MAIN BUTTON CONTAINER ========== */
+.button-container {
+    position: relative;
+    padding: 30px;
+    perspective: 800px;
+}
+
+.scanner-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ========== PROFESSIONAL CORNER DESIGN ========== */
+.corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+}
+
+.corner::before,
+.corner::after {
+    content: "";
+    position: absolute;
+    background: #4ecdc4;
+    box-shadow:
+        0 0 4px rgba(78, 205, 196, 0.8),
+        0 0 8px rgba(78, 205, 196, 0.4),
+        inset 0 0 2px rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-sm);
+    opacity: 0;
+    transform-origin: center;
+    animation: cornerFadeIn 0.8s ease-out forwards;
+}
+
+/* ========== TOP-LEFT CORNER ========== */
+.corner-tl {
+    top: 12px;
+    left: 12px;
+}
+
+.corner-tl::before {
+    width: 2px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    transform: scaleY(0);
+    animation:
+        drawDown 0.6s ease-out 0.2s forwards,
+        cornerFadeIn 0.8s ease-out 0.2s forwards;
+}
+
+.corner-tl::after {
+    width: 20px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    animation:
+        drawRight 0.6s ease-out 0.4s forwards,
+        cornerFadeIn 0.8s ease-out 0.4s forwards;
+}
+
+/* ========== TOP-RIGHT CORNER ========== */
+.corner-tr {
+    top: 12px;
+    right: 12px;
+}
+
+.corner-tr::before {
+    width: 2px;
+    height: 20px;
+    top: 0;
+    right: 0;
+    transform: scaleY(0);
+    animation:
+        drawDown 0.6s ease-out 0.3s forwards,
+        cornerFadeIn 0.8s ease-out 0.3s forwards;
+}
+
+.corner-tr::after {
+    width: 20px;
+    height: 2px;
+    top: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: right center;
+    animation:
+        drawLeft 0.6s ease-out 0.5s forwards,
+        cornerFadeIn 0.8s ease-out 0.5s forwards;
+}
+
+/* ========== BOTTOM-LEFT CORNER ========== */
+.corner-bl {
+    bottom: 12px;
+    left: 12px;
+}
+
+.corner-bl::before {
+    width: 2px;
+    height: 20px;
+    bottom: 0;
+    left: 0;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    animation:
+        drawUp 0.6s ease-out 0.4s forwards,
+        cornerFadeIn 0.8s ease-out 0.4s forwards;
+}
+
+.corner-bl::after {
+    width: 20px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    animation:
+        drawRight 0.6s ease-out 0.6s forwards,
+        cornerFadeIn 0.8s ease-out 0.6s forwards;
+}
+
+/* ========== BOTTOM-RIGHT CORNER ========== */
+.corner-br {
+    bottom: 12px;
+    right: 12px;
+}
+
+.corner-br::before {
+    width: 2px;
+    height: 20px;
+    bottom: 0;
+    right: 0;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    animation:
+        drawUp 0.6s ease-out 0.5s forwards,
+        cornerFadeIn 0.8s ease-out 0.5s forwards;
+}
+
+.corner-br::after {
+    width: 20px;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: right center;
+    animation:
+        drawLeft 0.6s ease-out 0.7s forwards,
+        cornerFadeIn 0.8s ease-out 0.7s forwards;
+}
+
+/* ========== CORNER HOVER EFFECTS ========== */
+.button-container:hover .corner::before,
+.button-container:hover .corner::after {
+    box-shadow:
+    0 0 8px rgba(78, 205, 196, 0.8),
+        0 0 16px rgba(78, 205, 196, 0.4),
+        inset 0 0 3px rgba(255, 255, 255, 0.3);
+    animation: cornerPulse 2s ease-in-out infinite;
+}
+
+/* ========== THE BUTTON ITSELF ========== */
+.neo-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 32px 16px 20px;
+    min-width: 250px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-light);
+
+    /* Simple solid background */
+    background-color: #212121;
+
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+
+    /* Breathing neon halo effect */
+    animation: breathe 5s ease-in-out infinite;
+
+    /* Added transitions for hover effects */
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.2s ease-out,
+        color 0.2s ease-out,
+        border-color 0.2s ease-out;
+
+    /* Enable 3D transforms for children */
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+}
+
+/* Accessibility focus ring */
+.neo-button:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+/* Pseudo-element for mix-blend-mode glow */
+.neo-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(78, 205, 196, 0.3);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #ffffff;
+    border-radius: var(--border-radius-sm);
+    animation: scanLine 4s linear infinite;
+    opacity: 0;
+}
+
+/* Hover effect for the entire button container */
+.button-container:hover .neo-button {
+    transform: rotateX(5deg) rotateY(-5deg) scale(1.02);
+    box-shadow:
+        0 8px 20px rgba(78, 205, 196, 0.2),
+        0 0 30px rgba(78, 205, 196, 0.1);
+}
+
+/* Hover and focus states */
+.neo-button:hover,
+.neo-button:focus-visible {
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.neo-button:hover::before,
+.neo-button:focus-visible::before {
+    opacity: 1;
+}
+
+.neo-button:hover .scan-line,
+.neo-button:focus-visible .scan-line {
+    animation-play-state: running;
+    animation-duration: 2s;
+}
+
+.neo-button:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ========== ICON CONTAINER & DOT MATRIX ========== */
+.icon-container {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+    transform: translateZ(20px);
+    overflow: hidden;
+}
+
+.icon-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(78, 205, 196, 0.3);
+    animation: iconScan 3s linear infinite;
+}
+
+.neo-button:hover .icon-container,
+.neo-button:focus-visible .icon-container {
+    background: rgba(78, 205, 196, 0.1);
+    border-color: rgba(78, 205, 196, 0.4);
+}
+
+.dot-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    width: 22px;
+    height: 22px;
+}
+
+.matrix-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #444;
+    transition: all 0.3s ease;
+    animation: dotBreathe 3s ease-in-out infinite;
+}
+
+.matrix-dot:nth-child(even) {
+    animation-delay: 0.3s;
+}
+
+.matrix-dot:nth-child(3),
+.matrix-dot:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.matrix-dot:nth-child(2),
+.matrix-dot:nth-child(4),
+.matrix-dot:nth-child(5),
+.matrix-dot:nth-child(6),
+.matrix-dot:nth-child(8) {
+    background: white;
+    box-shadow: 0 0 5px white;
+}
+
+.neo-button:hover .matrix-dot,
+.neo-button:focus-visible .matrix-dot {
+    background: var(--primary-color);
+    box-shadow:
+        0 0 6px var(--primary-color),
+        0 0 12px white;
+    animation: dotWave 0.6s forwards;
+}
+
+/* Staggered delays */
+.neo-button:hover .matrix-dot:nth-child(1),
+.neo-button:focus-visible .matrix-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.neo-button:hover .matrix-dot:nth-child(2),
+.neo-button:focus-visible .matrix-dot:nth-child(2) {
+    animation-delay: 0.04s;
+}
+
+.neo-button:hover .matrix-dot:nth-child(3),
+.neo-button:focus-visible .matrix-dot:nth-child(3) {
+    animation-delay: 0.08s;
+}
+
+.neo-button:hover .matrix-dot:nth-child(4),
+.neo-button:focus-visible .matrix-dot:nth-child(4) {
+    animation-delay: 0.12s;
+}
+
+.neo-button:hover .matrix-dot:nth-child(5),
+.neo-button:focus-visible .matrix-dot:nth-child(5) {
+    animation-delay: 0.16s;
+}
+
+.neo-button:hover .matrix-dot:nth-child(6),
+.neo-button:focus-visible .matrix-dot:nth-child(6) {
+    animation-delay: 0.2s;
+}
+
+.neo-button:hover .matrix-dot:nth-child(7),
+.neo-button:focus-visible .matrix-dot:nth-child(7) {
+    animation-delay: 0.24s;
+}
+
+.neo-button:hover .matrix-dot:nth-child(8),
+.neo-button:focus-visible .matrix-dot:nth-child(8) {
+    animation-delay: 0.28s;
+}
+
+.neo-button:hover .matrix-dot:nth-child(9),
+.neo-button:focus-visible .matrix-dot:nth-child(9) {
+    animation-delay: 0.32s;
+}
+
+/* ========== BUTTON TEXT & GLITCH EFFECT ========== */
+.button-text {
+    position: relative;
+    letter-spacing: 0.8px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    transform: translateZ(40px);
+    color: var(--text-light);
+}
+
+.button-text::after,
+.button-text::before,
+.glitch-layer-3 {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.neo-button:hover .button-text::after,
+.neo-button:focus-visible .button-text::after,
+.neo-button:hover .button-text::before,
+.neo-button:focus-visible .button-text::before,
+.neo-button:hover .glitch-layer-3,
+.neo-button:focus-visible .glitch-layer-3 {
+    opacity: 1;
+}
+
+.button-text::after {
+    color: var(--primary-color);
+    z-index: -1;
+    animation: glitch1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.button-text::before {
+    color: var(--accent-color);
+    z-index: -2;
+    animation: glitch2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+}
+
+/* Third glitch layer */
+.glitch-layer-3 {
+    color: white;
+    z-index: -3;
+    animation: blockGlitch 1.5s steps(1) infinite;
+}
+
+/* ========== KEYFRAME ANIMATIONS ========== */
+/* Enhanced corner animations */
+@keyframes cornerFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes drawRight {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes drawLeft {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes drawDown {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes drawUp {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes cornerPulse {
+
+    0%,
+    100% {
+        filter: brightness(1) saturate(1);
+        transform: scale(1);
+    }
+
+    50% {
+        filter: brightness(1.2) saturate(1.3);
+        transform: scale(1.02);
+    }
+}
+
+/* Breathing halo */
+@keyframes breathe {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(78, 205, 196, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(78, 205, 196, 0.6);
+    }
+}
+
+/* Icon scan animation */
+@keyframes iconScan {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Scan line */
+@keyframes scanLine {
+    0% {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateX(280px);
+        opacity: 0;
+    }
+}
+
+/* Dot animations */
+@keyframes dotBreathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes dotWave {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.4) translateY(-2px);
+        opacity: 0.8;
+    }
+}
+
+/* Glitch effects */
+@keyframes glitch1 {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes glitch2 {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(2px, -2px);
+    }
+
+    40% {
+        transform: translate(2px, 2px);
+    }
+
+    60% {
+        transform: translate(-2px, -2px);
+    }
+
+    80% {
+        transform: translate(-2px, 2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes blockGlitch {
+    2% {
+        clip-path: inset(50% 0 30% 0);
+    }
+
+    4% {
+        clip-path: inset(20% 0 65% 0);
+    }
+
+    6% {
+        clip-path: inset(70% 0 10% 0);
+    }
+
+    8% {
+        clip-path: inset(90% 0 5% 0);
+    }
+
+    10% {
+        clip-path: inset(40% 0 40% 0);
+    }
+
+    12% {
+        clip-path: inset(60% 0 30% 0);
+    }
+
+    14% {
+        clip-path: inset(20% 0 75% 0);
+    }
+
+    16% {
+        clip-path: inset(80% 0 5% 0);
+    }
+
+    18% {
+        clip-path: inset(40% 0 55% 0);
+    }
+
+    20% {
+        clip-path: inset(0 0 0 0);
+    }
+}

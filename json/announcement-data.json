@@ -1,0 +1,625 @@
+{
+  "project": {
+    "name": "足球梦",
+    "announcementDate": "2025-06-12",
+    "dayOfWeek": "星期一",
+    "shootDate": "2025-06-12",
+    "director": "张明",
+    "producer": "李华",
+    "cinematographer": "王强",
+    "scriptSupervisor": "陈丽",
+    "productionDesigner": "刘美工",
+    "costumeDesigner": "赵服装",
+    "castingDirector": "王 casting",
+    "assistantDirector": "小助理",
+    "keyGrip": "张师傅",
+    "bestBoy": "李助理"
+  },
+  "shootingDays": {
+    "2023-06-12": {
+      "shootDay": {
+        "date": "2025-06-12",
+        "dayOfWeek": "星期一",
+        "callTime": "07:00",
+        "shootTime": "08:00",
+        "wrapTime": "18:00",
+        "estimatedDuration": 10,
+        "weather": "晴，25-30°C",
+        "location": "学校外景场地",
+        "status": "in-progress"
+      },
+      "scenes": [
+        {
+          "sceneId": "SC001",
+          "sceneName": "场次 1 - 小卖店外",
+          "sceneNumber": 1,
+          "pageNumbers": "1-3",
+          "location": "小卖店外",
+          "setting": "外景/日",
+          "intExt": "EXT",
+          "dayNight": "日",
+          "estimatedTime": "08:00-10:00",
+          "actualTime": "08:00-09:30",
+          "status": "completed",
+          "priority": "high",
+          "scriptNotes": "中国队进球，马小川激动拍打电视",
+          "shots": [
+            {
+              "shotId": 1,
+              "originalShotId": "1",
+              "shotType": "全景",
+              "lens": "35mm",
+              "angle": "平视",
+              "movement": "摇镜",
+              "description": "足球比赛直播画面，中国队进球",
+              "duration": 8,
+              "characters": [
+                "无"
+              ],
+              "props": [
+                "电视屏幕"
+              ],
+              "equipment": {
+                "camera": "ARRI ALEXA Mini LF",
+                "lens": "35mm",
+                "support": "三脚架"
+              },
+              "focus": "对称构图，焦点在电视屏幕上的足球动作",
+              "lighting": "侧光，高调，暖色",
+              "status": "completed"
+            },
+            {
+              "shotId": 2,
+              "originalShotId": "2",
+              "shotType": "特写",
+              "lens": "50mm",
+              "angle": "侧面",
+              "movement": "推镜",
+              "description": "马小川拍打电视机，画面卡住",
+              "duration": 5,
+              "characters": [
+                "马小川"
+              ],
+              "props": [
+                "电视机"
+              ],
+              "equipment": {
+                "camera": "Sony FX9",
+                "lens": "50mm",
+                "support": "手持稳定器"
+              },
+              "focus": "三分法，焦点在马小川的手和电视机",
+              "lighting": "逆光，低调，冷色",
+              "status": "completed"
+            }
+          ],
+          "cast": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "roleId": "char001",
+              "actorId": "act001",
+              "callTime": "07:00",
+              "arrivalTime": "07:30",
+              "costume": "脏旧T恤和短裤",
+              "makeup": "蓬乱头发，脸上有黑灰污渍",
+              "notes": "需要表现出激动后沮丧的情绪变化"
+            }
+          ],
+          "stunts": [],
+          "specialEquipment": [
+            "三脚架",
+            "手持稳定器"
+          ],
+          "setDressing": [
+            "小卖店布景",
+            "货架道具",
+            "电视道具"
+          ],
+          "sound": {
+            "requirements": [
+              "解说员声音",
+              "球场欢呼声",
+              "电视机静电声",
+              "拍打声"
+            ],
+            "source": "后期配音和音效",
+            "special": "需要营造现场观看比赛的氛围"
+          }
+        },
+        {
+          "sceneId": "SC002",
+          "sceneName": "场次 2 - 小卖店内",
+          "sceneNumber": 2,
+          "pageNumbers": "4-6",
+          "location": "小卖店内",
+          "setting": "内景/日",
+          "intExt": "INT",
+          "dayNight": "日",
+          "estimatedTime": "10:30-12:30",
+          "actualTime": "",
+          "status": "scheduled",
+          "priority": "medium",
+          "scriptNotes": "马小川拍打电视机，李成才询问情况",
+          "shots": [
+            {
+              "shotId": 3,
+              "originalShotId": "3",
+              "shotType": "中景",
+              "lens": "35mm",
+              "angle": "背面",
+              "movement": "拉镜",
+              "description": "马小川拍打电视机，李成才询问情况",
+              "duration": 6,
+              "characters": [
+                "马小川",
+                "李成才"
+              ],
+              "props": [
+                "电视机"
+              ],
+              "equipment": {
+                "camera": "Canon C500 Mark II",
+                "lens": "35mm",
+                "support": "三脚架"
+              },
+              "focus": "三分法，焦点在马小川背部动作",
+              "lighting": "侧光，低调，冷色",
+              "status": "not-started"
+            }
+          ],
+          "cast": [
+            {
+              "character": "马小川",
+              "actor": "张小明",
+              "roleId": "char001",
+              "actorId": "act001",
+              "callTime": "09:30",
+              "arrivalTime": "09:45",
+              "costume": "脏旧T恤和短裤",
+              "makeup": "蓬乱头发，脸上有黑灰污渍",
+              "notes": "延续上一场的情绪"
+            },
+            {
+              "character": "李成才",
+              "actor": "李建国",
+              "roleId": "char002",
+              "actorId": "act002",
+              "callTime": "10:00",
+              "arrivalTime": "10:15",
+              "costume": "简单衬衫和裤子",
+              "makeup": "整洁短发，轻微汗渍",
+              "notes": "表现父亲的关心和焦急"
+            }
+          ],
+          "stunts": [],
+          "specialEquipment": [
+            "三脚架"
+          ],
+          "setDressing": [
+            "小卖店内景",
+            "货架道具",
+            "电视道具"
+          ],
+          "sound": {
+            "requirements": [
+              "拍打声",
+              "对话声",
+              "环境背景音"
+            ],
+            "source": "现场收音",
+            "special": "注意收音环境"
+          }
+        }
+      ],
+      "crew": {
+        "keyCrew": [
+          {
+            "role": "导演",
+            "name": "张明",
+            "phone": "138****0001",
+            "email": "zhangming@film.com",
+            "callTime": "06:30"
+          },
+          {
+            "role": "制片主任",
+            "name": "李华",
+            "phone": "138****0002",
+            "email": "lihua@film.com",
+            "callTime": "06:00"
+          },
+          {
+            "role": "摄影指导",
+            "name": "王强",
+            "phone": "138****0003",
+            "email": "wangqiang@film.com",
+            "callTime": "06:30"
+          },
+          {
+            "role": "灯光师",
+            "name": "李师傅",
+            "phone": "138****0004",
+            "email": "lishifu@film.com",
+            "callTime": "06:00"
+          },
+          {
+            "role": "录音师",
+            "name": "赵工",
+            "phone": "138****0005",
+            "email": "zhaogong@film.com",
+            "callTime": "06:30"
+          },
+          {
+            "role": "场记",
+            "name": "陈丽",
+            "phone": "138****0006",
+            "email": "chenli@film.com",
+            "callTime": "06:30"
+          },
+          {
+            "role": "美术指导",
+            "name": "刘美工",
+            "phone": "138****0007",
+            "email": "liumeigong@film.com",
+            "callTime": "06:00"
+          },
+          {
+            "role": "服装师",
+            "name": "赵服装",
+            "phone": "138****0008",
+            "email": "zhaofuzhuang@film.com",
+            "callTime": "06:00"
+          },
+          {
+            "role": "演员统筹",
+            "name": "王 casting",
+            "phone": "138****0009",
+            "email": "wangcasting@film.com",
+            "callTime": "06:00"
+          },
+          {
+            "role": "化妆师",
+            "name": "小美",
+            "phone": "138****0010",
+            "email": "xiaomei@film.com",
+            "callTime": "06:00"
+          },
+          {
+            "role": "道具师",
+            "name": "老刘",
+            "phone": "138****0011",
+            "email": "laoliu@film.com",
+            "callTime": "05:30"
+          },
+          {
+            "role": "场务",
+            "name": "小王",
+            "phone": "138****0012",
+            "email": "xiaowang@film.com",
+            "callTime": "05:30"
+          }
+        ],
+        "departments": [
+          {
+            "name": "导演组",
+            "members": [
+              "张明 (导演)",
+              "小助理 (副导演)"
+            ]
+          },
+          {
+            "name": "摄影组",
+            "members": [
+              "王强 (摄影指导)",
+              "摄影师B",
+              "跟焦员"
+            ]
+          },
+          {
+            "name": "灯光组",
+            "members": [
+              "李师傅 (灯光师)",
+              "灯光助理A",
+              "灯光助理B"
+            ]
+          },
+          {
+            "name": "录音组",
+            "members": [
+              "赵工 (录音师)",
+              "录音助理"
+            ]
+          },
+          {
+            "name": "美术组",
+            "members": [
+              "刘美工 (美术指导)",
+              "道具师",
+              "置景师"
+            ]
+          },
+          {
+            "name": "服装组",
+            "members": [
+              "赵服装 (服装师)",
+              "化妆师",
+              "服装助理"
+            ]
+          },
+          {
+            "name": "演员组",
+            "members": [
+              "王 casting (演员统筹)",
+              "化妆师",
+              "服装助理"
+            ]
+          }
+        ]
+      },
+      "equipment": {
+        "cameras": [
+          {
+            "item": "ARRI ALEXA Mini LF",
+            "quantity": 1,
+            "assignedTo": "王强",
+            "status": "in-use"
+          },
+          {
+            "item": "Sony FX9",
+            "quantity": 1,
+            "assignedTo": "王强",
+            "status": "in-use"
+          },
+          {
+            "item": "Canon C500 Mark II",
+            "quantity": 1,
+            "assignedTo": "摄影师B",
+            "status": "in-use"
+          },
+          {
+            "item": "Canon C70",
+            "quantity": 1,
+            "assignedTo": "摄影师C",
+            "status": "available"
+          }
+        ],
+        "lenses": [
+          {
+            "item": "14-24mm f/2.8 变焦镜头",
+            "quantity": 1,
+            "assignedTo": "摄影组",
+            "status": "available"
+          },
+          {
+            "item": "24-70mm f/2.8 变焦镜头",
+            "quantity": 2,
+            "assignedTo": "摄影组",
+            "status": "in-use"
+          },
+          {
+            "item": "70-200mm f/2.8 变焦镜头",
+            "quantity": 1,
+            "assignedTo": "摄影组",
+            "status": "available"
+          },
+          {
+            "item": "24mm f/1.4 定焦镜头",
+            "quantity": 1,
+            "assignedTo": "Sony FX9",
+            "status": "in-use"
+          },
+          {
+            "item": "35mm f/1.4 定焦镜头",
+            "quantity": 2,
+            "assignedTo": "摄影组",
+            "status": "in-use"
+          },
+          {
+            "item": "50mm f/1.2 定焦镜头",
+            "quantity": 1,
+            "assignedTo": "Sony FX9",
+            "status": "in-use"
+          },
+          {
+            "item": "85mm f/1.2 定焦镜头",
+            "quantity": 1,
+            "assignedTo": "Canon C500 Mark II",
+            "status": "in-use"
+          },
+          {
+            "item": "100mm f/2.8 微距镜头",
+            "quantity": 1,
+            "assignedTo": "摄影组",
+            "status": "available"
+          }
+        ],
+        "lighting": [
+          {
+            "item": "ARRI SkyPanel S60 天空灯",
+            "quantity": 2,
+            "assignedTo": "李师傅",
+            "status": "in-use"
+          },
+          {
+            "item": "Kino Flo Celeb 400 组合灯",
+            "quantity": 4,
+            "assignedTo": "灯光组",
+            "status": "in-use"
+          },
+          {
+            "item": "LED柔光灯 1x1米",
+            "quantity": 6,
+            "assignedTo": "灯光组",
+            "status": "in-use"
+          },
+          {
+            "item": "LED聚光灯 650W",
+            "quantity": 4,
+            "assignedTo": "灯光组",
+            "status": "available"
+          },
+          {
+            "item": "反光板 五合一套装",
+            "quantity": 3,
+            "assignedTo": "灯光组",
+            "status": "in-use"
+          },
+          {
+            "item": "柔光箱 120cm八角形",
+            "quantity": 2,
+            "assignedTo": "灯光组",
+            "status": "in-use"
+          },
+          {
+            "item": "柔光箱 80cm方形",
+            "quantity": 2,
+            "assignedTo": "灯光组",
+            "status": "available"
+          }
+        ],
+        "sound": [
+          {
+            "item": "Sony UWP-D无线麦克风系统",
+            "quantity": 4,
+            "assignedTo": "赵工",
+            "status": "in-use"
+          },
+          {
+            "item": "Rode NTG3 指向性麦克风",
+            "quantity": 2,
+            "assignedTo": "录音组",
+            "status": "in-use"
+          },
+          {
+            "item": "Zoom H6 录音机",
+            "quantity": 2,
+            "assignedTo": "录音组",
+            "status": "in-use"
+          },
+          {
+            "item": "Fostex FR-2LE 录音机",
+            "quantity": 1,
+            "assignedTo": "录音组",
+            "status": "available"
+          },
+          {
+            "item": "Sound Devices 788T 录音机",
+            "quantity": 1,
+            "assignedTo": "录音组",
+            "status": "available"
+          }
+        ],
+        "support": [
+          {
+            "item": "Manfrotto MVH502A 三脚架",
+            "quantity": 3,
+            "assignedTo": "摄影组",
+            "status": "in-use"
+          },
+          {
+            "item": "DJI Ronin-S 手持稳定器",
+            "quantity": 1,
+            "assignedTo": "摄影组",
+            "status": "in-use"
+          },
+          {
+            "item": "Dolly 轨道 3米",
+            "quantity": 1,
+            "assignedTo": "摄影组",
+            "status": "in-use"
+          },
+          {
+            "item": "摇臂 5米",
+            "quantity": 1,
+            "assignedTo": "摄影组",
+            "status": "available"
+          },
+          {
+            "item": "滑轨 2米",
+            "quantity": 1,
+            "assignedTo": "摄影组",
+            "status": "available"
+          }
+        ]
+      },
+      "transportation": {
+        "crewTransport": "剧组大巴车",
+        "castTransport": "演员专车",
+        "departureTime": "06:30",
+        "pickupPoints": [
+          {
+            "location": "公司总部",
+            "time": "06:30"
+          },
+          {
+            "location": "演员公寓",
+            "time": "06:45"
+          }
+        ]
+      },
+      "meals": {
+        "breakfast": {
+          "time": "07:00",
+          "location": "化妆间",
+          "provided": true
+        },
+        "lunch": {
+          "time": "12:00",
+          "location": "拍摄现场",
+          "provided": true
+        },
+        "dinner": {
+          "time": "18:30",
+          "location": "餐厅",
+          "provided": false
+        }
+      },
+      "safety": {
+        "safetyOfficer": "王安全",
+        "emergencyContact": "138****9999",
+        "firstAidStation": "现场医疗点",
+        "evacuationPlan": "紧急出口位于场地东侧"
+      },
+      "notes": {
+        "productionNotes": [
+          "所有演员请提前1小时到达化妆间",
+          "外景场地需要提前申请，请场务组确认",
+          "注意防晒，提供防暑药品",
+          "今日已完成场次1拍摄，请注意明天拍摄安排"
+        ],
+        "directorNotes": [
+          "重点表现马小川从兴奋到沮丧的情绪变化",
+          "注意教室场景的安静氛围营造",
+          "今日拍摄进度良好，明日继续加油"
+        ],
+        "cinematographerNotes": [
+          "外景注意光线变化，及时调整曝光",
+          "内景注意窗户自然光的利用",
+          "镜头运动要保持稳定，特别是特写镜头"
+        ],
+        "castingNotes": [
+          "主要演员张小明表现良好，符合角色要求",
+          "配角演员李建国待最终确认",
+          "注意演员情绪状态，确保表演连贯性"
+        ],
+        "costumeNotes": [
+          "马小川服装需要做旧处理，表现出生活拮据的状态",
+          "李成才服装要整洁，体现中年父亲的形象",
+          "所有服装需要提前熨烫，确保上镜效果"
+        ],
+        "makeupNotes": [
+          "马小川妆容需要体现激动后的情绪变化",
+          "李成才妆容要自然，体现中年男性的沧桑感",
+          "注意补妆，特别是在出汗后要及时处理"
+        ],
+        "propsNotes": [
+          "电视机需要提前测试，确保画面播放正常",
+          "小卖店布景需要提前搭建并检查稳定性",
+          "所有道具需要检查安全性，避免意外发生"
+        ]
+      }
+    }
+  },
+  "version": "1.2",
+  "lastUpdated": "2023-06-12T09:30:00Z"
+}
