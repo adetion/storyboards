@@ -324,15 +324,14 @@ wop/
 | `json` | JSON 编解码 |
 
 ---
-<img width="1213" height="753" alt="截屏2026-06-01 22 45 32" src="https://github.com/user-attachments/assets/e719c6b7-0348-4cdd-a7fa-80974d338160" />
-<img width="1213" height="836" alt="截屏2026-06-01 22 44 24" src="https://github.com/user-attachments/assets/9bd01548-f909-4892-a843-212e030713ce" />
-<img width="1213" height="982" alt="截屏2026-06-01 22 43 53" src="https://github.com/user-attachments/assets/8e3626a9-bc66-466b-947b-132972d915e7" />
+## 实际运行截图
 <img width="1213" height="914" alt="截屏2026-06-01 22 42 49" src="https://github.com/user-attachments/assets/a86e19a3-e800-48e5-bfeb-010e85b5d063" />
-
-![Uploading 截屏2026-06-01 22.50.27.png…]()
-<img width="1213" height="982" alt="截屏2026-06-01 22 50 17" src="https://github.com/user-attachments/assets/ce088852-21ef-4e9d-ac48-5248e39388f7" />
+<img width="1213" height="982" alt="截屏2026-06-01 22 43 53" src="https://github.com/user-attachments/assets/8e3626a9-bc66-466b-947b-132972d915e7" />
+<img width="1213" height="836" alt="截屏2026-06-01 22 44 24" src="https://github.com/user-attachments/assets/9bd01548-f909-4892-a843-212e030713ce" />
+<img width="1213" height="753" alt="截屏2026-06-01 22 45 32" src="https://github.com/user-attachments/assets/e719c6b7-0348-4cdd-a7fa-80974d338160" />
 <img width="1213" height="982" alt="截屏2026-06-01 22 49 19" src="https://github.com/user-attachments/assets/805a99cf-ded5-4302-afef-de043a798e9f" />
-
+<img width="1213" height="982" alt="截屏2026-06-01 22 50 17" src="https://github.com/user-attachments/assets/ce088852-21ef-4e9d-ac48-5248e39388f7" />
+<img width="1213" height="982" alt="截屏2026-06-01 22 50 27" src="https://github.com/user-attachments/assets/8cdede15-92b6-4a6c-9cac-6d237e6561bb" />
 ## 安装部署
 
 ### 1. 部署文件
