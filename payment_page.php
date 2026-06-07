@@ -160,8 +160,8 @@ function getOAuthUrl($redirect_uri, $scope = 'snsapi_base', $state = 'STATE') {
 // 根据code获取openid（使用 payment_config.json 中的配置）
 function getOpenIdByCode($code) {
     global $CONFIG;
-    $appId = $CONFIG['wechat']['appid'] ?? 'wx7a15973fe4c9f064';
-    $appSecret = $CONFIG['wechat']['appsecret'] ?? '692a720b323f10ec045e42fa66f9ff43';
+    $appId = $CONFIG['wechat']['appid'] ?? 'wx7a11111111111111111';
+    $appSecret = $CONFIG['wechat']['appsecret'] ?? '1111111111111111111111111';
 
     $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appId}&secret={$appSecret}&code={$code}&grant_type=authorization_code";
     $result = json_decode(file_get_contents($url), true);
